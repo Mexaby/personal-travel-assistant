@@ -1,0 +1,23 @@
+import { createRouter, createWebHashHistory } from 'vue-router'
+import HomePage from '../components/HomePage.vue'
+import FlightsPage from '../components/FlightsPage.vue'
+
+const routes = [
+    {
+        path: '/',
+        name: 'home',
+        component: HomePage
+    },
+    {
+        path: '/flights',
+        name: 'flights',
+        component: FlightsPage
+    }
+]
+
+const router = createRouter({
+    history: createWebHashHistory(),
+    routes,
+})
+
+export default router
