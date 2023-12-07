@@ -1,7 +1,7 @@
 <template>
   <div>
     <div>Flights Page</div>
-    <button @click="goTo('/home')">Back to Home</button>
+    <button @click="goTo('/')">Back to Home</button>
   </div>
 </template>
 
