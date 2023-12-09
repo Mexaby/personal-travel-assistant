@@ -3,6 +3,7 @@
     <div>Homepage</div>
     <button>Plan a Trip</button>
     <div>
+      <button @click="goTo('/account')">My Account</button>
       <button @click="goTo('/flights')">Flights</button>
       <button @click="goTo('/accommodations')">Accommodation</button>
       <button @click="goTo('/venues')">Venues</button>

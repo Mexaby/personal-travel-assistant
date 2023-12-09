@@ -3,6 +3,7 @@ import HomePage from '../components/HomePage.vue'
 import FlightsPage from '../components/FlightsPage.vue'
 import AccommodationsPage from "@/components/AccommodationsPage.vue";
 import VenuesPage from "@/components/VenuesPage.vue";
+import AccountPage from '../components/AccountPage.vue'
 
 const routes = [
     {
@@ -24,6 +25,11 @@ const routes = [
         path: '/venues',
         name: 'venues',
         component: VenuesPage
+    },
+    {
+        path: '/account',
+        name: 'account',
+        component: AccountPage
     }
 ]
 
