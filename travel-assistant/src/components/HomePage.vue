@@ -4,8 +4,8 @@
     <button>Plan a Trip</button>
     <div>
       <button @click="goTo('/flights')">Flights</button>
-      <button>Accommodation</button>
-      <button>Venues</button>
+      <button @click="goTo('/accommodations')">Accommodation</button>
+      <button @click="goTo('/venues')">Venues</button>
     </div>
   </div>
 </template>
