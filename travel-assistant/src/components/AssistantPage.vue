@@ -11,22 +11,6 @@
         </div>
       </div>
     </div>
-    
-    <!-- Three columns with two rows of buttons -->
-    <div class="button-container">
-      <div class="button-column">
-        <button class="custom-button">Button 1</button>
-        <button class="custom-button">Button 2</button>
-      </div>
-      <div class="button-column">
-        <button class="custom-button">Button 3</button>
-        <button class="custom-button">Button 4</button>
-      </div>
-      <div class="button-column">
-        <button class="custom-button">Button 5</button>
-        <button class="custom-button" @click="goTo('/assistant')">Assistant</button>
-      </div>
-    </div>
   </div>
 </template>
 
@@ -46,6 +30,7 @@ export default {
 </script>
 
 <style scoped>
+/* Base styling for larger screens */
 .header {
   display: flex;
   justify-content: space-between;
@@ -64,7 +49,7 @@ export default {
   top: 100%;
   left: 0;
   background-color: #fff;
-  border: 1px solid #bbb;
+  border: 1px solid #ccc;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   padding: 10px;
   display: none;
@@ -73,29 +58,4 @@ export default {
 .account-info:hover .options-list {
   display: block;
 }
-
-.button-container {
-  display: flex;
-  max-width: 550px;
-  margin: 0 auto;
-  margin-top: 100px;
-}
-
-.button-column {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 10px;
-}
-
-.custom-button {
-  width: 100%;
-  height: 40px;
-  border-radius: 5px;
-  background-color: #145da0;
-  color: white;
-  margin-bottom: 20px;
-}
-
 </style>

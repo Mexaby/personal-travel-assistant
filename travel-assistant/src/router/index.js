@@ -4,6 +4,13 @@ import FlightsPage from '../components/FlightsPage.vue'
 import AccommodationsPage from "@/components/AccommodationsPage.vue";
 import VenuesPage from "@/components/VenuesPage.vue";
 import AccountPage from '../components/AccountPage.vue'
+import AssistantPage from '../components/AssistantPage.vue'
+
+// TODO choose one type of quote and stick to it
+// also, why use semicolon on line 4 and 5?
+// also, why use @?
+
+//TODO CONSISTENCY, PEOPLE!!!
 
 const routes = [
     {
@@ -30,6 +37,11 @@ const routes = [
         path: '/account',
         name: 'account',
         component: AccountPage
+    },
+    {
+        path: '/assistant',
+        name: 'assistant',
+        component: AssistantPage
     }
 ]
 
