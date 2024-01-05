@@ -13,7 +13,7 @@
     </div>
     
     <div class="actions">
-      <button class="plan-trip" @click="goTo('/plan')">Plan a Trip</button>
+      <button class="plan-trip" @click="planTrip">Plan a Trip</button>
       <div class="action-buttons">
         <button class="secondary-action" @click="goTo('/flights')">Flights</button>
         <button class="secondary-action" @click="goTo('/accommodations')">Accommodation</button>
@@ -34,6 +34,10 @@ export default {
     goTo(route) {
       this.$router.push(route);
     },
+    planTrip() {
+      localStorage.setItem("plan","true");
+      this.$router.push('/flights');
+    }
   },
 };
 </script>
