@@ -10,6 +10,13 @@ export default {
 <script setup>
 import {ref} from "vue";
 
+let accommodation = {
+  location: "",
+  checkIn: "",
+  checkOut: "",
+  guests: 0,
+}
+
 let input = ref("");
 let showDestinations = ref(true);
 const destinations = ["Cluj-Napoca", "Alicante", "Barcelona", "Bucharest", "Budapest", "Copenhagen", "Dublin", "Iasi", "London", "Madrid", "Milan", "Paris", "Rome", "Stockholm", "Vienna", "Warsaw", "Zurich"];
@@ -24,6 +31,32 @@ function handleResultClick(destination) {
   input.value = destination;
   showDestinations.value = false;
 }
+function search() {
+  if (input.value === "") {
+    alert("Please enter a destination!");
+  } else if (!destinations.includes(input.value)) {
+    alert("Please enter a valid destination!");
+  } else if (accommodation.checkIn === "" || accommodation.checkOut === "") {
+    alert("Please select both check-in and check-out dates!");
+  } else if (isNaN(accommodation.guests) || accommodation.guests <= 0) {
+    alert("Please enter a valid number of guests!");
+  } else {
+    const today = new Date();
+    const checkInDate = new Date(accommodation.checkIn);
+    const checkOutDate = new Date(accommodation.checkOut);
+
+    if (checkInDate >= checkOutDate) {
+      alert("Check-out date must be after the check-in date!");
+    } else if (checkInDate < today || checkOutDate < today) {
+      alert("Please select dates in the future!");
+    } else {
+      accommodation.location = input.value;
+      localStorage.setItem("accommodation", JSON.stringify(accommodation));
+      //this.$router.push('/venues');
+    }
+  }
+}
+
 </script>
 
 <template>
@@ -34,9 +67,9 @@ function handleResultClick(destination) {
     <div class="inputs">
       <div class="input-group">
         <input type="text" class="location" v-model="input" placeholder="Search destinations..."/>
-        <input type="date" class="check-in" placeholder="Check-in">
-        <input type="date" class="check-out" placeholder="Check-out">
-        <input type="number" class="guests" placeholder="Guests">
+        <input v-model="accommodation.checkIn" type="date" class="check-in" placeholder="Check-in">
+        <input v-model="accommodation.checkOut" type="date" class="check-out" placeholder="Check-out">
+        <input v-model="accommodation.guests" type="number" class="guests" placeholder="Guests">
       </div>
       <button @click="search" class="search-button">Search</button>
     </div>
