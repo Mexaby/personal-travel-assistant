@@ -6,6 +6,7 @@ const router = useRouter();
 const goTo = (route) => {
   router.push(route);
 };
+
 let accommodation = {
   location: "",
   checkIn: "",
@@ -15,8 +16,8 @@ let accommodation = {
 
 let input = ref("");
 let showDestinations = ref(true);
-const destinations = ["Cluj-Napoca", "Alicante", "Bucharest", "Budapest", "Istanbul", "London", "Madrid", "Paris", "Rome", "Vienna"];
 
+const destinations = ["Cluj-Napoca", "Alicante", "Bucharest", "Budapest", "Istanbul", "London", "Madrid", "Paris", "Rome", "Vienna"];
 function filteredList() {
   return destinations.filter((destination) =>
       destination.toLowerCase().includes(input.value.toLowerCase())
@@ -48,6 +49,7 @@ function search() {
     } else {
       accommodation.location = input.value;
       localStorage.setItem("accommodation", JSON.stringify(accommodation));
+
       goTo("/listingAccommodations")
     }
   }
@@ -66,6 +68,7 @@ function search() {
         <input v-model="accommodation.checkOut" type="date" class="check-out" placeholder="Check-out">
         <input v-model="accommodation.guests" type="number" class="guests" placeholder="Guests">
       </div>
+
       <button @click="() => search(goToPage)">Search</button>
     </div>
     <div v-if="showDestinations && input !== ''" class="destinations-container">

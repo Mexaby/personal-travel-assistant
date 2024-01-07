@@ -5,9 +5,9 @@
       <div class="account-info" @mouseover="showOptions = true" @mouseleave="showOptions = false">
         My Account
         <div v-if="showOptions" class="options-list">
-          <div>Option 1</div>
-          <div>Option 2</div>
-          <div>Option 3</div>
+          <div>Option I</div>
+          <div>Option II</div>
+          <div>Option III</div>
         </div>
       </div>
     </div>
