@@ -1,50 +1,61 @@
 <template>
-  <div class="header">
+  <header class="app-header">
     <div class="title">JourneyGenius</div>
-    <div class="nav-buttons">
-      <button class="nav-button">Plan a trip</button>
-      <button class="nav-button">Flights</button>
-      <button class="nav-button">Accommodation</button>
-      <button class="nav-button">Venues</button>
+    <div class="nav-links">
+      <button class="plan-trip-button" @click="planTrip">Plan a Trip</button>
+      <button class="flights-button" @click="goTo('/flights')">Flights</button>
+      <button class="accomodations-button" @click="goTo('/accommodations')">Accommodation</button>
+      <button class="venues-button" @click="goTo('/venues')">Venues</button>
     </div>
-    <div class="account-button">
-      <button class="nav-button">My Account</button>
-    </div>
-  </div>
+    <button class="account-button" @click="goTo('/account')">My Account</button>
+  </header>
 </template>
-
+  
 <script>
 export default {
-  name: 'AppHeader'
-}
+  name: "AppHeader",
+  methods: {
+    goTo(route) {
+      this.$router.push(route);
+    },
+    planTrip() {
+      localStorage.setItem('plan', 'true');
+      this.$router.push('/flights');
+    },
+  },
+};
 </script>
-
+  
 <style scoped>
-.header {
+.app-header {
   display: flex;
   justify-content: space-between;
-  width: 1200px;
-  border-radius: 10px;
+  align-items: center;
   padding: 10px;
-  background-color: lightblue;
+  background-color: #3498db;
+  color: #fff;
 }
 
 .title {
-  margin-right: auto;
-  font-size: 2em;
+  font-size: 1.5em;
+  margin-left: 20px;
 }
 
-.nav-buttons {
+.nav-links {
   display: flex;
-  gap: 10px;
-  background-color: lightblue;
-}
-
-.nav-button:hover {
-  background-color: blue;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 700px;
+  margin: 0 auto;
 }
 
 .account-button {
-  margin-left: auto;
+  padding: 10px 15px;
+  background-color: #2ecc71;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
 }
 </style>
+  
