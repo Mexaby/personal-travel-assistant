@@ -10,7 +10,7 @@ const initialList = createAccommodations();
 
 
 const list = computed(() => {
-  return initialList.filter(item => item.location === accommodation.location);
+  return initialList.filter(item => item.location === accommodation.location && item.person >= accommodation.guests);
 });
 
 const router = useRouter();
