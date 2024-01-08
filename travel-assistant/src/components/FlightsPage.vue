@@ -6,6 +6,7 @@
 </template>
 
 <script>
+console.log(localStorage.getItem("plan"));
 export default {
   methods: {
     goTo(route) {

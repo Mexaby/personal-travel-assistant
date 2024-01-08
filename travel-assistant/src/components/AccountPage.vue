@@ -2,9 +2,16 @@
   <div>
     <div class="header">
       <button @click="goTo('/')">Back to Home</button>
-      <div class="account-info">My Account</div>
+      <div class="account-info" @mouseover="showOptions = true" @mouseleave="showOptions = false">
+        My Account
+        <div v-if="showOptions" class="options-list">
+          <div>Option 1</div>
+          <div>Option 2</div>
+          <div>Option 3</div>
+        </div>
+      </div>
     </div>
-
+    
     <!-- Three columns with two rows of buttons -->
     <div class="button-container">
       <div class="button-column">
@@ -17,7 +24,7 @@
       </div>
       <div class="button-column">
         <button class="custom-button">Button 5</button>
-        <button class="custom-button">Button 6</button>
+        <button class="custom-button" @click="goTo('/assistant')">Assistant</button>
       </div>
     </div>
   </div>
@@ -25,6 +32,11 @@
 
 <script>
 export default {
+  data() {
+    return {
+      showOptions: false,
+    };
+  },
   methods: {
     goTo(route) {
       this.$router.push(route);
@@ -39,16 +51,34 @@ export default {
   justify-content: space-between;
   align-items: center;
   padding: 10px;
+  max-width: 600px;
+  margin: 0 auto;
 }
 
 .account-info {
-  margin-right: 10px; /* Adjust the margin as needed */
+  position: relative;
+}
+
+.options-list {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #fff;
+  border: 1px solid #bbb;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 10px;
+  display: none;
+}
+
+.account-info:hover .options-list {
+  display: block;
 }
 
 .button-container {
   display: flex;
   max-width: 550px;
   margin: 0 auto;
+  margin-top: 100px;
 }
 
 .button-column {
@@ -63,8 +93,9 @@ export default {
   width: 100%;
   height: 40px;
   border-radius: 5px;
-  background-color: blue;
+  background-color: #145da0;
   color: white;
   margin-bottom: 20px;
 }
+
 </style>
