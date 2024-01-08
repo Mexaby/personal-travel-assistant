@@ -1,6 +1,6 @@
 <template>
   <div>
-    <AppHeader :title="pageTitle" />
+    <AppHeader/>
 
     <div class="action-buttons">
       <button class="plan-trip-button" @click="planTrip">Plan a Trip</button>
@@ -35,7 +35,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .header {
   display: flex;
   justify-content: space-between;
@@ -47,7 +47,6 @@ export default {
 }
 
 .title {
-  position: absolute;
   left: 50%;
   transform: translateX(-50%);
   font-size: 2em;
