@@ -2,6 +2,7 @@
 
 import {createAccommodations} from "@/classes/accommodations";
 import {computed} from "vue";
+import AppHeader from './page-components/AppHeader.vue';
 
 const accommodation = JSON.parse(localStorage.getItem("accommodation"));
 
@@ -16,6 +17,7 @@ const list = computed(() => {
 
 <template>
   <div class="accommodations-page">
+    <AppHeader/>
     <div class="accommodations-list">
       <div v-for="item in list" :key="item.id" class="accommodation-item">
         <img :src="require(`@/classes/photos/${item.image}`)" alt="photo" class="accommodation-image">

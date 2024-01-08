@@ -1,6 +1,7 @@
 <script setup>
 import {ref} from "vue";
 import {useRouter} from "vue-router";
+import AppHeader from './page-components/AppHeader.vue';
 const router = useRouter();
 const goTo = (route) => {
   router.push(route);
@@ -56,6 +57,7 @@ function search() {
 
 <template>
   <div>
+    <AppHeader/>
     <div>Accommodations Page</div>
     <button @click="goTo('/')">Back to Home</button>
     <br><br>
