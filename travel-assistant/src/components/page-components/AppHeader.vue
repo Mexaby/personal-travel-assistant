@@ -1,6 +1,6 @@
 <template>
   <header class="app-header">
-    <div class="title">JourneyGenius</div>
+    <div class="title" @click="goTo('/')">JourneyGenius</div>
     <div class="nav-buttons">
       <button class="plan-trip-button" @click="planTrip">Plan a Trip</button>
       <button class="flights-button" @click="goTo('/flights')">Flights</button>
@@ -35,11 +35,13 @@ export default {
   background-color: #3498db;
   color: #fff;
   border-radius: 5px;
+  margin-bottom: 20px;
 }
 
 .title {
   font-size: 1.5em;
   margin-left: 20px;
+  cursor: pointer;
 }
 
 .nav-buttons {
