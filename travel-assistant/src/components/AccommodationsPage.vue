@@ -1,14 +1,11 @@
-<script>
-export default {
-  methods: {
-    goTo(route) {
-      this.$router.push(route);
-    },
-  },
-};
-</script>
 <script setup>
 import {ref} from "vue";
+import {useRouter} from "vue-router";
+
+const router = useRouter();
+const goTo = (route) => {
+  router.push(route);
+};
 
 let accommodation = {
   location: "",
@@ -19,8 +16,8 @@ let accommodation = {
 
 let input = ref("");
 let showDestinations = ref(true);
-const destinations = ["Cluj-Napoca", "Alicante", "Barcelona", "Bucharest", "Budapest", "Copenhagen", "Dublin", "Iasi", "London", "Madrid", "Milan", "Paris", "Rome", "Stockholm", "Vienna", "Warsaw", "Zurich"];
 
+const destinations = ["Cluj-Napoca", "Alicante", "Bucharest", "Budapest", "Istanbul", "London", "Madrid", "Paris", "Rome", "Vienna"];
 function filteredList() {
   return destinations.filter((destination) =>
       destination.toLowerCase().includes(input.value.toLowerCase())
@@ -52,11 +49,11 @@ function search() {
     } else {
       accommodation.location = input.value;
       localStorage.setItem("accommodation", JSON.stringify(accommodation));
-      //this.$router.push('/venues');
+
+      goTo("/listingAccommodations")
     }
   }
 }
-
 </script>
 
 <template>
@@ -71,7 +68,8 @@ function search() {
         <input v-model="accommodation.checkOut" type="date" class="check-out" placeholder="Check-out">
         <input v-model="accommodation.guests" type="number" class="guests" placeholder="Guests">
       </div>
-      <button @click="search" class="search-button">Search</button>
+
+      <button @click="() => search(goToPage)">Search</button>
     </div>
     <div v-if="showDestinations && input !== ''" class="destinations-container">
       <div

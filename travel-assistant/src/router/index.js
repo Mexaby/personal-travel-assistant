@@ -5,6 +5,8 @@ import AccommodationsPage from "@/components/AccommodationsPage.vue";
 import VenuesPage from "@/components/VenuesPage.vue";
 import AccountPage from '../components/AccountPage.vue'
 import AssistantPage from '../components/AssistantPage.vue'
+import ListAccommodation from "@/components/ListAccommodation.vue";
+import AccommodationDetails from "@/components/AccommodationDetails.vue";
 
 // TODO choose one type of quote and stick to it
 // also, why use semicolon on line 4 and 5?
@@ -27,6 +29,17 @@ const routes = [
         path: '/accommodations',
         name: 'accommodations',
         component: AccommodationsPage
+    },
+    {
+        path: '/listingAccommodations',
+        name: 'listingAccommodations',
+        component: ListAccommodation
+    },
+    {
+        path: '/accommodation/:id',
+        name: 'AccommodationDetails',
+        component: AccommodationDetails,
+        props: true
     },
     {
         path: '/venues',
