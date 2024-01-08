@@ -1,7 +1,7 @@
 <template>
   <header class="app-header">
     <div class="title">JourneyGenius</div>
-    <div class="nav-links">
+    <div class="nav-buttons">
       <button class="plan-trip-button" @click="planTrip">Plan a Trip</button>
       <button class="flights-button" @click="goTo('/flights')">Flights</button>
       <button class="accomodations-button" @click="goTo('/accommodations')">Accommodation</button>
@@ -34,6 +34,7 @@ export default {
   padding: 10px;
   background-color: #3498db;
   color: #fff;
+  border-radius: 5px;
 }
 
 .title {
@@ -41,21 +42,30 @@ export default {
   margin-left: 20px;
 }
 
-.nav-links {
+.nav-buttons {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  max-width: 700px;
-  margin: 0 auto;
+  width: 600px;
 }
 
-.account-button {
+button {
+  height: 40px;
   padding: 10px 15px;
-  background-color: #2ecc71;
-  color: #fff;
-  border: none;
   border-radius: 5px;
-  cursor: pointer;
+  background-color: #3498db;
+  color: white;
+  border: none;
 }
+
+button:hover {
+  cursor: pointer;
+  background-color: #2980b9;
+}
+
+.account-button {  
+  background-color: #2ecc71;
+}
+
 </style>
   

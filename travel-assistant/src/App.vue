@@ -8,7 +8,7 @@
   </div>
 </template>
 
-<style>
+<style scoped>
 .zoom-fade-enter-active,
 .zoom-fade-leave-active {
   transition: all 0.5s;
