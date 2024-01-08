@@ -3,6 +3,7 @@
 import {createAccommodations} from "@/classes/accommodations";
 import {computed} from "vue";
 import AppHeader from './page-components/AppHeader.vue';
+import {useRouter} from "vue-router";
 
 const accommodation = JSON.parse(localStorage.getItem("accommodation"));
 
@@ -10,9 +11,13 @@ const initialList = createAccommodations();
 
 
 const list = computed(() => {
-  return initialList.filter(item => item.location === accommodation.location);
+  return initialList.filter(item => item.location === accommodation.location && item.person >= accommodation.guests);
 });
 
+const router = useRouter();
+const goTo = (route) => {
+  router.push(route);
+};
 </script>
 
 <template>

@@ -7,6 +7,10 @@ const goTo = (route) => {
   router.push(route);
 };
 
+const router = useRouter();
+const goTo = (route) => {
+  router.push(route);
+};
 let accommodation = {
   location: "",
   checkIn: "",
