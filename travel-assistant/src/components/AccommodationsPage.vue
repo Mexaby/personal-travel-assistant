@@ -1,12 +1,15 @@
 <script setup>
 import {ref} from "vue";
 import {useRouter} from "vue-router";
-
 const router = useRouter();
 const goTo = (route) => {
   router.push(route);
 };
 
+const router = useRouter();
+const goTo = (route) => {
+  router.push(route);
+};
 let accommodation = {
   location: "",
   checkIn: "",
@@ -49,7 +52,6 @@ function search() {
     } else {
       accommodation.location = input.value;
       localStorage.setItem("accommodation", JSON.stringify(accommodation));
-
       goTo("/listingAccommodations")
     }
   }
@@ -68,8 +70,7 @@ function search() {
         <input v-model="accommodation.checkOut" type="date" class="check-out" placeholder="Check-out">
         <input v-model="accommodation.guests" type="number" class="guests" placeholder="Guests">
       </div>
-
-      <button @click="() => search(goToPage)">Search</button>
+      <button @click="() => search(goToPage)" class="search-button">Search</button>
     </div>
     <div v-if="showDestinations && input !== ''" class="destinations-container">
       <div
@@ -93,7 +94,7 @@ function search() {
 
 .destinations-container {
   width: 250px;
-  margin-left: 17.5%;
+  margin-left: 23.2%;
   display: flex;
   flex-direction: column;
   align-items: center;
