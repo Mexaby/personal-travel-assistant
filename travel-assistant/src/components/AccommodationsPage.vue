@@ -1,6 +1,10 @@
 <script setup>
 import {ref} from "vue";
 import {useRouter} from "vue-router";
+const router = useRouter();
+const goTo = (route) => {
+  router.push(route);
+};
 
 const router = useRouter();
 const goTo = (route) => {
@@ -15,8 +19,8 @@ let accommodation = {
 
 let input = ref("");
 let showDestinations = ref(true);
-const destinations = ["Cluj-Napoca", "Alicante", "Bucharest", "Budapest", "Istanbul", "London", "Madrid", "Paris", "Rome", "Vienna"];
 
+const destinations = ["Cluj-Napoca", "Alicante", "Bucharest", "Budapest", "Istanbul", "London", "Madrid", "Paris", "Rome", "Vienna"];
 function filteredList() {
   return destinations.filter((destination) =>
       destination.toLowerCase().includes(input.value.toLowerCase())

@@ -1,33 +1,26 @@
 <template>
   <div>
-    <div class="header">
-      <button @click="goTo('/')">Back to Home</button>
-      <button class="account-info" @click="goTo('/account')">
-        My Account
-        <div v-if="showOptions" class="options-list">
-          <div>Option 1</div>
-          <div>Option 2</div>
-          <div>Option 3</div>
-        </div>
-      </button>
-    </div>
-    
-    <div class="actions">
-      <button class="plan-trip" @click="planTrip">Plan a Trip</button>
-      <div class="action-buttons">
-        <button class="secondary-action" @click="goTo('/flights')">Flights</button>
-        <button class="secondary-action" @click="goTo('/accommodations')">Accommodation</button>
-        <button class="secondary-action" @click="goTo('/venues')">Venues</button>
-      </div>
+    <AppHeader :title="pageTitle" />
+
+    <div class="action-buttons">
+      <button class="plan-trip-button" @click="planTrip">Plan a Trip</button>
+      <button class="flights-button" @click="goTo('/flights')">Flights</button>
+      <button class="accomodations-button" @click="goTo('/accommodations')">Accommodation</button>
+      <button class="venues-button" @click="goTo('/venues')">Venues</button>
     </div>
   </div>
 </template>
 
 <script>
+import AppHeader from './page-components/AppHeader.vue';
+
 export default {
+  components: {
+    AppHeader,
+  },
   data() {
     return {
-      showOptions: false,
+      pageTitle: 'JourneyGenius',
     };
   },
   methods: {
@@ -35,9 +28,9 @@ export default {
       this.$router.push(route);
     },
     planTrip() {
-      localStorage.setItem("plan","true");
+      localStorage.setItem('plan', 'true');
       this.$router.push('/flights');
-    }
+    },
   },
 };
 </script>
@@ -48,33 +41,34 @@ export default {
   justify-content: space-between;
   align-items: center;
   padding: 10px;
-  max-width: 600px;
+  max-width: 1000px;
   margin: 0 auto;
+  margin-bottom: 50px;
 }
 
-.actions {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 10px;
-  max-width: 550px; /* Adjust the max-width as needed */
-  margin: 0 auto;
-  margin-top: 100px;
+.title {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 2em;
 }
 
-.plan-trip {
-  width: 100%; /* Make the button span the full width */
-  margin-bottom: 10px; /* Adjust the margin as needed */
+.plan-trip-button {
+  width: 100%;
 }
 
-.secondary-action{
-  width: 30%;
+.flights-button,
+.accomodations-button,
+.venues-button {
+  width: 40%;
 }
 
 .action-buttons {
   display: flex;
   justify-content: space-between;
-  width: 100%;
+  align-items: center;
+  max-width: 700px;
+  margin: 0 auto;
 }
 
 .options-list {
@@ -92,8 +86,6 @@ export default {
   display: block;
 }
 
-
-
 button {
   height: 40px;
   border-radius: 5px;
@@ -102,4 +94,8 @@ button {
   margin-bottom: 20px;
 }
 
+.account-info {
+  margin-left: auto;
+  width: 10%;
+}
 </style>
