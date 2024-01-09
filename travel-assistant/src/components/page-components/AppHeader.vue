@@ -1,5 +1,6 @@
 <template>
   <header class="app-header">
+    <img :src="require('@/components/assets/logo2.png')" alt="Logo" class="logo" />
     <div class="title" @click="goTo('/')">JourneyGenius</div>
     <div class="nav-buttons">
       <button class="plan-trip-button" @click="planTrip">Plan a Trip</button>
@@ -28,6 +29,7 @@ export default {
   
 <style scoped>
 .app-header {
+  position: relative;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -38,10 +40,17 @@ export default {
   margin-bottom: 20px;
 }
 
+.logo {
+  position: absolute;
+  height: 100%;
+  max-width: 60px;
+  object-fit: contain;
+}
+
 .title {
   font-size: 1.5em;
-  margin-left: 20px;
   cursor: pointer;
+  transform: translate(70px);
 }
 
 .nav-buttons {

@@ -1,12 +1,15 @@
 <template>
   <div>
-    <AppHeader/>
-
-    <div class="action-buttons">
+    <AppHeader />
+    <div class="intro">
+      <h1 class="title">JourneyGenius</h1>
+      <p>Plan your trip with ease</p>
+      <!-- <div class="action-buttons">
       <button class="plan-trip-button" @click="planTrip">Plan a Trip</button>
       <button class="flights-button" @click="goTo('/flights')">Flights</button>
       <button class="accomodations-button" @click="goTo('/accommodations')">Accommodation</button>
       <button class="venues-button" @click="goTo('/venues')">Venues</button>
+    </div> -->
     </div>
   </div>
 </template>
@@ -17,11 +20,6 @@ import AppHeader from './page-components/AppHeader.vue';
 export default {
   components: {
     AppHeader,
-  },
-  data() {
-    return {
-      pageTitle: 'JourneyGenius',
-    };
   },
   methods: {
     goTo(route) {
