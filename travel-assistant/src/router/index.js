@@ -8,12 +8,6 @@ import AssistantPage from '../components/AssistantPage.vue'
 import ListAccommodation from "@/components/ListAccommodation.vue";
 import AccommodationDetails from "@/components/AccommodationDetails.vue";
 
-// TODO choose one type of quote and stick to it
-// also, why use semicolon on line 4 and 5?
-// also, why use @?
-
-//TODO CONSISTENCY, PEOPLE!!!
-
 const routes = [
     {
         path: '/',
