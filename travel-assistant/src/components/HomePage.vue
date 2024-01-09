@@ -45,18 +45,40 @@
     <div class="gallery-title">View some of our destinations</div>
     <div class="gallery">
       <!-- amsterdam, cancun, crete, cusco, hanoi, Hoi an, istambul, london, marrakech, paris, rome -->
-      <image-card imageUrl="travelAmsterdam.jpg" imageTitle="Amsterdam"/>
-      <image-card imageUrl="travelBali.jpg" imageTitle="Bali"/>
-      <image-card imageUrl="travelCancun.jpg" imageTitle="Cancun"/>
-      <image-card imageUrl="travelCrete.jpg" imageTitle="Crete"/>
-      <image-card imageUrl="travelCusco.jpg" imageTitle="Cusco"/>
-      <image-card imageUrl="travelHanoi.jpg" imageTitle="Hanoi"/>
-      <image-card imageUrl="travelHoiAn.jpg" imageTitle="Hoi An"/>
-      <image-card imageUrl="travelIstambul.jpg" imageTitle="Istambul"/>
-      <image-card imageUrl="travelLondon.jpg" imageTitle="London"/>
-      <image-card imageUrl="travelMarrakech.jpg" imageTitle="Marrakech"/>
-      <image-card imageUrl="travelParis.jpg" imageTitle="Paris"/>
-      <image-card imageUrl="travelRome.jpg" imageTitle="Rome"/>      
+      <image-card imageUrl="travelAmsterdam.jpg" imageTitle="Amsterdam" />
+      <image-card imageUrl="travelBali.jpg" imageTitle="Bali" />
+      <image-card imageUrl="travelCancun.jpg" imageTitle="Cancun" />
+      <image-card imageUrl="travelCrete.jpg" imageTitle="Crete" />
+      <image-card imageUrl="travelCusco.jpg" imageTitle="Cusco" />
+      <image-card imageUrl="travelHanoi.jpg" imageTitle="Hanoi" />
+      <image-card imageUrl="travelHoiAn.jpg" imageTitle="Hoi An" />
+      <image-card imageUrl="travelIstambul.jpg" imageTitle="Istambul" />
+      <image-card imageUrl="travelLondon.jpg" imageTitle="London" />
+      <image-card imageUrl="travelMarrakech.jpg" imageTitle="Marrakech" />
+      <image-card imageUrl="travelParis.jpg" imageTitle="Paris" />
+      <image-card imageUrl="travelRome.jpg" imageTitle="Rome" />
+    </div>
+    <div class="footer">
+      <div class="footer-content">
+        <div class="footer-section about">
+          <h1 class="logo-text"><span>Journey</span>Genius</h1>
+          <hr />
+        </div>
+      </div>
+      <div class="footer-bottom">
+        &copy; 2024 TeamSix, All rights reserved.
+        <div class="social-media">
+          <a href="https://www.facebook.com/" target="_blank">
+            <img src="./assets/facebook.png" alt="Facebook" />
+          </a>
+          <a href="https://twitter.com/" target="_blank">
+            <img src="./assets/twitter.png" alt="Twitter" />
+          </a>
+          <a href="https://www.instagram.com/" target="_blank">
+            <img src="./assets/instagram.png" alt="Instagram" />
+          </a>
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -247,6 +269,7 @@ button {
   margin-bottom: 20px;
   width: 80%;
 }
+
 .deco-image {
   width: 30%;
   border-radius: 100px;
@@ -254,11 +277,13 @@ button {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 3);
 }
 
-.hot-deals-title, .gallery-title {
+.hot-deals-title,
+.gallery-title {
   text-align: center;
   font-size: 3em;
   margin-top: 50px;
-  margin-bottom: 20px;;
+  margin-bottom: 20px;
+  ;
 }
 
 .offers {
@@ -274,5 +299,41 @@ button {
   margin-left: 5%;
   margin-right: 5%;
   margin-bottom: 50px;
+}
+
+.footer {
+  background-color: #3498db;
+  color: #fff;
+  padding: 20px;
+  font-size: 0.8em;
+  width: 100%;
+  border-radius: 5px;
+}
+
+.logo-text {
+  font-size: 2em;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+hr {
+  color: #fff;
+  opacity: 0.5;
+  margin-bottom: 20px;
+}
+
+.footer-bottom {
+  display: flex;
+  align-items: center;
+}
+
+.footer-bottom img {
+  width: 30px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.social-media {
+  margin-left: auto;
 }
 </style>
