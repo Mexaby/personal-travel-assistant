@@ -2,7 +2,7 @@
   <div>
     <AppHeader />
     <div class="intro">
-      <img src="./assets/background1.jpg" alt="background" class="background" />
+      <img src="./assets/background1.jpg" class="background" />
       <div class="overlay-text">
         <h1>Discover a world of possibilities</h1>
         <p>Embark with confidence, for JourneyGenius guides your every step</p>
@@ -11,15 +11,28 @@
           <button class="learn-more-link">Learn More</button>
         </div>
       </div>
+    </div>
+    <div class="about-us">
+      <div class="about-us-text">
+        <h1>What is JourneyGenius?</h1>
+        <p>
+          JourneyGenius is a travel assistant that helps you plan your trip from start to finish. We provide you with the best flight, accommodation, and venue options based on your preferences. We also provide you with a detailed itinerary of your trip, so you can focus on enjoying your trip.
+        </p>
+        <p>
+          At JourneyGenius, we envision a world where every journey is a seamless blend of discovery and ease. Our vision is to empower travelers with a smart companion that anticipates needs, unlocks hidden gems, and transforms each moment into an unforgettable adventure. With JourneyGenius, embark on a future of hassle-free exploration, where your travel aspirations become reality.
+        </p>
+      </div>
+      <img src="./assets/about1.jpg" class="deco-image" />
+    </div>
+  </div>
+</template>
+
       <!-- <div class="action-buttons">
       <button class="plan-trip-button" @click="planTrip">Plan a Trip</button>
       <button class="flights-button" @click="goTo('/flights')">Flights</button>
       <button class="accomodations-button" @click="goTo('/accommodations')">Accommodation</button>
       <button class="venues-button" @click="goTo('/venues')">Venues</button>
     </div> -->
-    </div>
-  </div>
-</template>
 
 <script>
 import AppHeader from './page-components/AppHeader.vue';
@@ -115,5 +128,35 @@ button {
 .account-info {
   margin-left: auto;
   width: 10%;
+}
+
+.about-us {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+.about-us-text {
+  margin-left: 30px;
+  width: 50%;
+  margin-right: 50px;
+  margin-left: 50px;
+}
+
+.about-us-text h1 {
+  font-size: 3em;
+  margin-bottom: 20px;
+}
+
+.about-us-text p {
+  font-size: 1.2em;
+}
+
+.deco-image {
+  width: 30%;
+  border-radius: 5px;
 }
 </style>
