@@ -49,6 +49,20 @@ import AppHeader from './page-components/AppHeader.vue';
 import TravelOffer from './page-components/TravelOffer.vue';
 
 export default {
+  mounted() {
+    let isRed = false;
+    setInterval(() => {
+      const button = document.getElementsByClassName('hot-deals-button');
+      if (isRed) {
+        button[0].style.background = '#ff0000';
+        isRed = false;
+      } else {
+        button[0].style.background = '#ff8c00';
+        isRed = true;
+      }
+    }, 1000);
+  },
+
   components: {
     AppHeader,
     TravelOffer,
