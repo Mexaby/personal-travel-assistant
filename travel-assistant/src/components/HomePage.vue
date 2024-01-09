@@ -144,19 +144,25 @@ button {
   width: 50%;
   margin-right: 50px;
   margin-left: 50px;
+  text-align: justify;
 }
 
 .about-us-text h1 {
   font-size: 3em;
-  margin-bottom: 20px;
+  margin-bottom: 30px;
 }
 
 .about-us-text p {
   font-size: 1.2em;
+  margin-bottom: 20px;
+  width: 80%;
 }
 
+/* make the image round */
 .deco-image {
   width: 30%;
-  border-radius: 5px;
+  border-radius: 100px;
+  border: 5px solid #145da0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 3);
 }
 </style>
