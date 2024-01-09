@@ -30,5 +30,5 @@ Welcome to the Personal Travel Assistant project! This application is designed t
 - Flights Page
 - Accomodation Page - _Szabolcs_
 - Venues Page
-- My Account Page -
-- Assistant Page - 
+- My Account Page - _Tudor_
+- Assistant Page - _Tudor_
