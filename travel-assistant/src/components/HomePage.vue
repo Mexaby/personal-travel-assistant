@@ -30,9 +30,15 @@
       <img src="./assets/about1.jpg" class="deco-image" />
     </div>
     <div class="offers">
-      <travel-offer title="Paris" imageUrl="phuket.jpg"
+      <travel-offer title="Paris" imageUrl="paris.jpg"
         description="Paris, France's capital, is a major European city and a global center for art, fashion, gastronomy and culture. Its 19th-century cityscape is crisscrossed by wide boulevards and the River Seine."
-        price="4 nights - $1000"/>
+        price="4 nights - $1000" />
+      <travel-offer title="Phuket" imageUrl="phuket.jpg"
+        description="Phuket, a rainforested, mountainous island in the Andaman Sea, has some of Thailand’s most popular beaches, mostly situated along the clear waters of the western shore."
+        price="5 nights - $3000" />
+      <travel-offer title="Bora Bora" imageUrl="borabora.jpg"
+        description="Bora Bora is a small South Pacific island northwest of Tahiti in French Polynesia. Surrounded by sand-fringed motus (islets) and a turquoise lagoon protected by a coral reef, it’s known for its scuba diving."
+        price="7 nights - $5000" />
     </div>
   </div>
 </template>
@@ -174,5 +180,10 @@ button {
   border-radius: 100px;
   border: 5px solid #145da0;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 3);
+}
+
+.offers {
+  display: flex;
+  margin: 5%;
 }
 </style>
