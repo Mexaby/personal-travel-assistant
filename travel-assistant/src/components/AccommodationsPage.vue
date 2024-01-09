@@ -67,8 +67,8 @@ function search() {
         <input v-model="accommodation.checkIn" type="date" class="check-in" placeholder="Check-in">
         <input v-model="accommodation.checkOut" type="date" class="check-out" placeholder="Check-out">
         <input v-model="accommodation.guests" type="number" class="guests" placeholder="Guests">
+        <button @click="search" class="search-button">Search</button>
       </div>
-      <button @click="() => search(goToPage)" class="search-button">Search</button>
     </div>
     <div v-if="showDestinations && input !== ''" class="destinations-container">
       <div
@@ -92,7 +92,7 @@ function search() {
 
 .destinations-container {
   width: 250px;
-  margin-left: 23.2%;
+  margin-left: 19.5%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -145,7 +145,8 @@ input {
 .destinations {
   background-color: rgb(97, 62, 252);
   cursor: pointer;
-  margin: 0;
+  margin:0;
+  margin-bottom: 10px;
 }
 
 .error {
