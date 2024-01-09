@@ -30,7 +30,7 @@
       </div>
       <img src="./assets/about1.jpg" class="deco-image" />
     </div>
-    <div class="hot-deals">Hot Deals</div>
+    <div class="hot-deals-title">Hot Deals</div>
     <div class="offers" ref="offersSection">
       <travel-offer title="Paris" imageUrl="paris.jpg"
         description="Paris, France's capital, is a major European city and a global center for art, fashion, gastronomy and culture. Its 19th-century cityscape is crisscrossed by wide boulevards and the River Seine."
@@ -42,12 +42,29 @@
         description="Bora Bora is a small South Pacific island northwest of Tahiti in French Polynesia. Surrounded by sand-fringed motus (islets) and a turquoise lagoon protected by a coral reef, it’s known for its scuba diving."
         price="7 nights - $5000" />
     </div>
+    <div class="gallery-title">View some of our destinations</div>
+    <div class="gallery">
+      <!-- amsterdam, cancun, crete, cusco, hanoi, Hoi an, istambul, london, marrakech, paris, rome -->
+      <image-card imageUrl="travelAmsterdam.jpg" imageTitle="Amsterdam"/>
+      <image-card imageUrl="travelBali.jpg" imageTitle="Bali"/>
+      <image-card imageUrl="travelCancun.jpg" imageTitle="Cancun"/>
+      <image-card imageUrl="travelCrete.jpg" imageTitle="Crete"/>
+      <image-card imageUrl="travelCusco.jpg" imageTitle="Cusco"/>
+      <image-card imageUrl="travelHanoi.jpg" imageTitle="Hanoi"/>
+      <image-card imageUrl="travelHoiAn.jpg" imageTitle="Hoi An"/>
+      <image-card imageUrl="travelIstambul.jpg" imageTitle="Istambul"/>
+      <image-card imageUrl="travelLondon.jpg" imageTitle="London"/>
+      <image-card imageUrl="travelMarrakech.jpg" imageTitle="Marrakech"/>
+      <image-card imageUrl="travelParis.jpg" imageTitle="Paris"/>
+      <image-card imageUrl="travelRome.jpg" imageTitle="Rome"/>      
+    </div>
   </div>
 </template>
 
 <script>
 import AppHeader from './page-components/AppHeader.vue';
 import TravelOffer from './page-components/TravelOffer.vue';
+import ImageCard from './page-components/ImageCard.vue';
 
 export default {
   data() {
@@ -67,6 +84,7 @@ export default {
   components: {
     AppHeader,
     TravelOffer,
+    ImageCard,
   },
 
   methods: {
@@ -229,8 +247,6 @@ button {
   margin-bottom: 20px;
   width: 80%;
 }
-
-/* make the image round */
 .deco-image {
   width: 30%;
   border-radius: 100px;
@@ -238,16 +254,25 @@ button {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 3);
 }
 
-.hot-deals {
+.hot-deals-title, .gallery-title {
   text-align: center;
   font-size: 3em;
   margin-top: 50px;
-  margin-bottom: 10px;
+  margin-bottom: 20px;;
 }
 
 .offers {
   display: flex;
   margin-left: 5%;
   margin-right: 5%;
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: auto;
+  margin-left: 5%;
+  margin-right: 5%;
+  margin-bottom: 50px;
 }
 </style>
