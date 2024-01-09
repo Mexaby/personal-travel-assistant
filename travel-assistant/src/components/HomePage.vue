@@ -3,6 +3,7 @@
     <AppHeader />
     <div class="intro">
       <img src="./assets/background1.jpg" class="background-image" />
+      <button class="hot-deals-button"  @click="scrollToOffers">Click here to browse hot deals!</button>
       <div class="overlay-text">
         <h1>Discover a world of possibilities</h1>
         <p>Embark with confidence, for JourneyGenius guides your every step</p>
@@ -29,7 +30,7 @@
       </div>
       <img src="./assets/about1.jpg" class="deco-image" />
     </div>
-    <div class="offers">
+    <div class="offers" ref="offersSection">
       <travel-offer title="Paris" imageUrl="paris.jpg"
         description="Paris, France's capital, is a major European city and a global center for art, fashion, gastronomy and culture. Its 19th-century cityscape is crisscrossed by wide boulevards and the River Seine."
         price="4 nights - $1000" />
@@ -67,6 +68,9 @@ export default {
         const top = element.getBoundingClientRect().top + window.scrollY;
         window.scrollTo({ top: top, behavior: 'smooth' });
       });
+    },
+    scrollToOffers() {
+      this.$refs.offersSection.scrollIntoView({ behavior: 'smooth' });
     }
   },
 };
@@ -81,6 +85,24 @@ export default {
 .background-image {
   border-radius: 5px;
   width: 100%;
+}
+
+.hot-deals-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: #ff0000;
+  color: #ffffff;
+  border: none;
+  padding: 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 24px;
+  margin: 4px;
+  cursor: pointer;
+  border-radius: 5px;
+  font-weight: bold;
 }
 
 .overlay-text {
@@ -111,8 +133,7 @@ export default {
 .plan-trip-button {
   font-size: 1.5em;
   margin-right: 20px;
-  padding-left: 2%;
-  padding-right: 2%;
+  padding: 1%;
   cursor: pointer;
 }
 
@@ -135,7 +156,6 @@ export default {
 }
 
 button {
-  height: 40px;
   border-radius: 5px;
   background-color: #145da0;
   color: white;
