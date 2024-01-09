@@ -2,17 +2,17 @@
   <div>
     <AppHeader />
     <div class="intro">
-      <img src="./assets/background1.jpg" class="background" />
+      <img src="./assets/background1.jpg" class="background-image" />
       <div class="overlay-text">
         <h1>Discover a world of possibilities</h1>
         <p>Embark with confidence, for JourneyGenius guides your every step</p>
         <div class="intro-action-buttons">
           <button class="plan-trip-button" @click="planTrip">Plan a trip</button>
-          <button class="learn-more-link">Learn More</button>
+          <button class="learn-more-link" v-on:click="scrollToAboutUs">Learn More</button>
         </div>
       </div>
     </div>
-    <div class="about-us">
+    <div class="about-us" ref="aboutUs">
       <div class="about-us-text">
         <h1>What is JourneyGenius?</h1>
         <p>
@@ -32,7 +32,7 @@
       <button class="flights-button" @click="goTo('/flights')">Flights</button>
       <button class="accomodations-button" @click="goTo('/accommodations')">Accommodation</button>
       <button class="venues-button" @click="goTo('/venues')">Venues</button>
-    </div> -->
+      </div> -->
 
 <script>
 import AppHeader from './page-components/AppHeader.vue';
@@ -50,19 +50,25 @@ export default {
       localStorage.setItem('plan', 'true');
       this.$router.push('/flights');
     },
+    scrollToAboutUs() {
+      this.$nextTick(() => {
+        const element = this.$refs.aboutUs;
+        const top = element.getBoundingClientRect().top + window.scrollY;
+        window.scrollTo({ top: top, behavior: 'smooth' });
+      });
+    }
   },
 };
 </script>
 
 <style scoped>
-.title {
-  left: 50%;
-  transform: translateX(-50%);
-  font-size: 2em;
+
+.intro {
+  position: relative;
+  width: 100%;
 }
 
-.background {
-  position: relative;
+.background-image {
   border-radius: 5px;
   width: 100%;
 }
@@ -77,6 +83,7 @@ export default {
   padding: 1%;
   border-radius: 5px;
 }
+
 
 .overlay-text h1 {
   font-size: 5em;
@@ -134,7 +141,6 @@ button {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 0 auto;
   margin-top: 50px;
   margin-bottom: 50px;
 }
