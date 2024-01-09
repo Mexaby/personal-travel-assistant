@@ -61,6 +61,7 @@ export default {
 }
 
 button {
+  font-size: 1em;
   height: 40px;
   padding: 10px 15px;
   border-radius: 5px;
