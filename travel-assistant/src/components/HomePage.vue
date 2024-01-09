@@ -3,7 +3,7 @@
     <AppHeader />
     <div class="intro">
       <img src="./assets/background1.jpg" class="background-image" />
-      <button class="hot-deals-button"  @click="scrollToOffers">Click here to browse hot deals!</button>
+      <button class="hot-deals-button" @click="scrollToOffers">Click here to browse hot deals!</button>
       <div class="overlay-text">
         <h1>Discover a world of possibilities</h1>
         <p>Embark with confidence, for JourneyGenius guides your every step</p>
@@ -30,6 +30,7 @@
       </div>
       <img src="./assets/about1.jpg" class="deco-image" />
     </div>
+    <div class="hot-deals">Hot Deals</div>
     <div class="offers" ref="offersSection">
       <travel-offer title="Paris" imageUrl="paris.jpg"
         description="Paris, France's capital, is a major European city and a global center for art, fashion, gastronomy and culture. Its 19th-century cityscape is crisscrossed by wide boulevards and the River Seine."
@@ -49,18 +50,18 @@ import AppHeader from './page-components/AppHeader.vue';
 import TravelOffer from './page-components/TravelOffer.vue';
 
 export default {
+  data() {
+    return {
+      intervalId: null,
+    };
+  },
+
   mounted() {
-    let isRed = false;
-    setInterval(() => {
-      const button = document.getElementsByClassName('hot-deals-button');
-      if (isRed) {
-        button[0].style.background = '#ff0000';
-        isRed = false;
-      } else {
-        button[0].style.background = '#ff8c00';
-        isRed = true;
-      }
-    }, 1000);
+    this.startInterval();
+  },
+
+  beforeUnmount() {
+    this.clearInterval();
   },
 
   components: {
@@ -69,13 +70,33 @@ export default {
   },
 
   methods: {
+    startInterval() {
+      let isRed = false;
+      this.intervalId = setInterval(() => {
+        const button = document.getElementsByClassName('hot-deals-button');
+        if (isRed) {
+          button[0].style.background = '#ff0000';
+          isRed = false;
+        } else {
+          button[0].style.background = '#ff8c00';
+          isRed = true;
+        }
+      }, 1000);
+    },
+
+    clearInterval() {
+      clearInterval(this.intervalId);
+    },
+
     goTo(route) {
       this.$router.push(route);
     },
+
     planTrip() {
       localStorage.setItem('plan', 'true');
       this.$router.push('/flights');
     },
+
     scrollToAboutUs() {
       this.$nextTick(() => {
         const element = this.$refs.aboutUs;
@@ -83,9 +104,10 @@ export default {
         window.scrollTo({ top: top, behavior: 'smooth' });
       });
     },
+
     scrollToOffers() {
       this.$refs.offersSection.scrollIntoView({ behavior: 'smooth' });
-    }
+    },
   },
 };
 </script>
@@ -216,8 +238,16 @@ button {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 3);
 }
 
+.hot-deals {
+  text-align: center;
+  font-size: 3em;
+  margin-top: 50px;
+  margin-bottom: 10px;
+}
+
 .offers {
   display: flex;
-  margin: 5%;
+  margin-left: 5%;
+  margin-right: 5%;
 }
 </style>

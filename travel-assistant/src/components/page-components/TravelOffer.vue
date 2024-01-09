@@ -75,4 +75,10 @@ export default {
     font-weight: bold;
     margin-left: auto;
     margin-right: auto;
-}</style>
+}
+
+.reserve-button:hover {
+    background-color: #ff8c00;
+    cursor: pointer;
+}
+</style>
