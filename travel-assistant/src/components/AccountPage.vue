@@ -1,5 +1,6 @@
 <template>
   <div>
+    <AppHeader/>
     <div class="header">
       <button @click="goTo('/')">Back to Home</button>
       <div class="account-info" @mouseover="showOptions = true" @mouseleave="showOptions = false">
@@ -31,7 +32,11 @@
 </template>
 
 <script>
+import AppHeader from './page-components/AppHeader.vue';
 export default {
+  components: {
+    AppHeader,
+  },
   data() {
     return {
       showOptions: false,

@@ -1,5 +1,6 @@
 <template>
   <div>
+    <AppHeader/>
     <div v-if="selectedAccommodation" class="accommodation-details">
       <h2>{{ selectedAccommodation.name }}</h2>
       <div class="image-container">
@@ -26,6 +27,7 @@
 import { ref } from "vue";
 import { useRouter } from "vue-router";
 import { createAccommodations } from "@/classes/accommodations";
+import AppHeader from './page-components/AppHeader.vue';
 
 const selectedAccommodation = ref(null);
 const router = useRouter();

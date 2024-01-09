@@ -2,8 +2,8 @@
 
 import {createAccommodations} from "@/classes/accommodations";
 import {computed} from "vue";
+import AppHeader from './page-components/AppHeader.vue';
 import {useRouter} from "vue-router";
-
 
 const accommodation = JSON.parse(localStorage.getItem("accommodation"));
 
@@ -22,6 +22,7 @@ const goTo = (route) => {
 
 <template>
   <div class="accommodations-page">
+    <AppHeader/>
     <div class="accommodations-list">
       <div v-for="item in list" :key="item.id" class="accommodation-item">
         <img :src="require(`@/classes/photos/${item.image}`)" alt="photo" class="accommodation-image">
