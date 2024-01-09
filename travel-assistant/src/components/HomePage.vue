@@ -2,24 +2,37 @@
   <div>
     <AppHeader />
     <div class="intro">
-      <img src="./assets/background1.jpg" alt="background" class="background" />
+      <img src="./assets/background1.jpg" class="background-image" />
       <div class="overlay-text">
         <h1>Discover a world of possibilities</h1>
         <p>Embark with confidence, for JourneyGenius guides your every step</p>
         <div class="intro-action-buttons">
           <button class="plan-trip-button" @click="planTrip">Plan a trip</button>
-          <button class="learn-more-link">Learn More</button>
+          <button class="learn-more-link" v-on:click="scrollToAboutUs">Learn More</button>
         </div>
       </div>
+    </div>
+    <div class="about-us" ref="aboutUs">
+      <div class="about-us-text">
+        <h1>What is JourneyGenius?</h1>
+        <p>
+          JourneyGenius is a travel assistant that helps you plan your trip from start to finish. We provide you with the best flight, accommodation, and venue options based on your preferences. We also provide you with a detailed itinerary of your trip, so you can focus on enjoying your trip.
+        </p>
+        <p>
+          At JourneyGenius, we envision a world where every journey is a seamless blend of discovery and ease. Our vision is to empower travelers with a smart companion that anticipates needs, unlocks hidden gems, and transforms each moment into an unforgettable adventure. With JourneyGenius, embark on a future of hassle-free exploration, where your travel aspirations become reality.
+        </p>
+      </div>
+      <img src="./assets/about1.jpg" class="deco-image" />
+    </div>
+  </div>
+</template>
+
       <!-- <div class="action-buttons">
       <button class="plan-trip-button" @click="planTrip">Plan a Trip</button>
       <button class="flights-button" @click="goTo('/flights')">Flights</button>
       <button class="accomodations-button" @click="goTo('/accommodations')">Accommodation</button>
       <button class="venues-button" @click="goTo('/venues')">Venues</button>
-    </div> -->
-    </div>
-  </div>
-</template>
+      </div> -->
 
 <script>
 import AppHeader from './page-components/AppHeader.vue';
@@ -37,19 +50,25 @@ export default {
       localStorage.setItem('plan', 'true');
       this.$router.push('/flights');
     },
+    scrollToAboutUs() {
+      this.$nextTick(() => {
+        const element = this.$refs.aboutUs;
+        const top = element.getBoundingClientRect().top + window.scrollY;
+        window.scrollTo({ top: top, behavior: 'smooth' });
+      });
+    }
   },
 };
 </script>
 
 <style scoped>
-.title {
-  left: 50%;
-  transform: translateX(-50%);
-  font-size: 2em;
+
+.intro {
+  position: relative;
+  width: 100%;
 }
 
-.background {
-  position: relative;
+.background-image {
   border-radius: 5px;
   width: 100%;
 }
@@ -64,6 +83,7 @@ export default {
   padding: 1%;
   border-radius: 5px;
 }
+
 
 .overlay-text h1 {
   font-size: 5em;
@@ -115,5 +135,40 @@ button {
 .account-info {
   margin-left: auto;
   width: 10%;
+}
+
+.about-us {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+.about-us-text {
+  margin-left: 30px;
+  width: 50%;
+  margin-right: 50px;
+  margin-left: 50px;
+  text-align: justify;
+}
+
+.about-us-text h1 {
+  font-size: 3em;
+  margin-bottom: 30px;
+}
+
+.about-us-text p {
+  font-size: 1.2em;
+  margin-bottom: 20px;
+  width: 80%;
+}
+
+/* make the image round */
+.deco-image {
+  width: 30%;
+  border-radius: 100px;
+  border: 5px solid #145da0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 3);
 }
 </style>
