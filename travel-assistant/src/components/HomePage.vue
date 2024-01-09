@@ -6,9 +6,9 @@
       <div class="overlay-text">
         <h1>Discover a world of possibilities</h1>
         <p>Embark with confidence, for JourneyGenius guides your every step</p>
-        <div class="action-buttons">
-          <button class="plan-trip-button" @click="planTrip">Plan a Trip</button>
-          <a href="/learn-more" class="learn-more-link">Learn More</a>
+        <div class="intro-action-buttons">
+          <button class="plan-trip-button" @click="planTrip">Plan a trip</button>
+          <button class="learn-more-link">Learn More</button>
         </div>
       </div>
       <!-- <div class="action-buttons">
@@ -42,16 +42,6 @@ export default {
 </script>
 
 <style scoped>
-.header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px;
-  max-width: 1000px;
-  margin: 0 auto;
-  margin-bottom: 50px;
-}
-
 .title {
   left: 50%;
   transform: translateX(-50%);
@@ -70,8 +60,9 @@ export default {
   left: 50%;
   transform: translate(-50%, -50%);
   text-align: center;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.45);
   padding: 1%;
+  border-radius: 5px;
 }
 
 .overlay-text h1 {
@@ -84,47 +75,33 @@ export default {
 .overlay-text p {
   font-size: 1.2em;
   color: #fff;
-  margin-bottom: 20px;
+  margin-bottom: 30px;
 }
 
 .plan-trip-button {
   font-size: 1.5em;
-  padding: 10px 20px;
+  margin-right: 20px;
+  padding-left: 2%;
+  padding-right: 2%;
+  cursor: pointer;
 }
 
 .learn-more-link {
   font-size: 1.2em;
   margin-left: 20px;
+  color: #fff;
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-decoration: underline;
 }
 
-
-.flights-button,
-.accomodations-button,
-.venues-button {
-  width: 40%;
-}
-
-.action-buttons {
+.intro-action-buttons {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
-  max-width: 700px;
   margin: 0 auto;
-}
-
-.options-list {
-  position: absolute;
-  top: 100%;
-  left: 0;
-  background-color: #fff;
-  border: 1px solid #ccc;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  padding: 10px;
-  display: none;
-}
-
-.account-info:hover .options-list {
-  display: block;
+  cursor: pointer;
 }
 
 button {
