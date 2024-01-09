@@ -24,6 +24,9 @@
       </div>
       <img src="./assets/about1.jpg" class="deco-image" />
     </div>
+    <div class="offers">
+      
+    </div>
   </div>
 </template>
 
