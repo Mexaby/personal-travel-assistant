@@ -2,8 +2,15 @@
   <div>
     <AppHeader />
     <div class="intro">
-      <h1 class="title">JourneyGenius</h1>
-      <p>Plan your trip with ease</p>
+      <img src="./assets/background1.jpg" alt="background" class="background" />
+      <div class="overlay-text">
+        <h1>Discover a world of possibilities</h1>
+        <p>Embark with confidence, for JourneyGenius guides your every step</p>
+        <div class="action-buttons">
+          <button class="plan-trip-button" @click="planTrip">Plan a Trip</button>
+          <a href="/learn-more" class="learn-more-link">Learn More</a>
+        </div>
+      </div>
       <!-- <div class="action-buttons">
       <button class="plan-trip-button" @click="planTrip">Plan a Trip</button>
       <button class="flights-button" @click="goTo('/flights')">Flights</button>
@@ -51,9 +58,45 @@ export default {
   font-size: 2em;
 }
 
-.plan-trip-button {
+.background {
+  position: relative;
+  border-radius: 5px;
   width: 100%;
 }
+
+.overlay-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 1%;
+}
+
+.overlay-text h1 {
+  font-size: 5em;
+  color: #fff;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 3);
+  margin-bottom: 20px;
+}
+
+.overlay-text p {
+  font-size: 1.2em;
+  color: #fff;
+  margin-bottom: 20px;
+}
+
+.plan-trip-button {
+  font-size: 1.5em;
+  padding: 10px 20px;
+}
+
+.learn-more-link {
+  font-size: 1.2em;
+  margin-left: 20px;
+}
+
 
 .flights-button,
 .accomodations-button,
