@@ -1,6 +1,6 @@
 <script setup>
-import {ref} from "vue";
-import {useRouter} from "vue-router";
+import { ref } from "vue";
+import { useRouter } from "vue-router";
 import AppHeader from './page-components/AppHeader.vue';
 const router = useRouter();
 const goTo = (route) => {
@@ -20,7 +20,7 @@ let showDestinations = ref(true);
 const destinations = ["Cluj-Napoca", "Alicante", "Bucharest", "Budapest", "Istanbul", "London", "Madrid", "Paris", "Rome", "Vienna"];
 function filteredList() {
   return destinations.filter((destination) =>
-      destination.toLowerCase().includes(input.value.toLowerCase())
+    destination.toLowerCase().includes(input.value.toLowerCase())
   );
 }
 
@@ -57,34 +57,31 @@ function search() {
 
 <template>
   <div>
-    <AppHeader/>
+    <AppHeader />
     <div>Accommodations Page</div>
     <button @click="goTo('/')">Back to Home</button>
     <br><br>
-    <div class="inputs">
-      <div class="input-group">
-        <input type="text" class="location" v-model="input" placeholder="Search destinations..."/>
-        <input v-model="accommodation.checkIn" type="date" class="check-in" placeholder="Check-in">
-        <input v-model="accommodation.checkOut" type="date" class="check-out" placeholder="Check-out">
-        <input v-model="accommodation.guests" type="number" class="guests" placeholder="Guests">
-        <button @click="search" class="search-button">Search</button>
+    <div class="search-container">
+      <div class="inputs">
+        <div class="input-group">
+          <input type="text" class="location" v-model="input" placeholder="Search destinations..." />
+          <input v-model="accommodation.checkIn" type="date" class="check-in" placeholder="Check-in">
+          <input v-model="accommodation.checkOut" type="date" class="check-out" placeholder="Check-out">
+          <input v-model="accommodation.guests" type="number" class="guests" placeholder="Guests">
+          <button @click="search" class="search-button">Search</button>
+        </div>
       </div>
-    </div>
-    <div v-if="showDestinations && input !== ''" class="destinations-container">
-      <div
-          class="item destinations"
-          v-for="destination in filteredList()"
-          :key="destination"
-          @click="handleResultClick(destination)"
-      >
-        <p>{{ destination }}</p>
-      </div>
-      <div class="item error" v-if="input && !filteredList().length">
-        <p>No results found!</p>
+      <div v-if="showDestinations && input !== ''" class="destinations-container">
+        <div class="item destinations" v-for="destination in filteredList()" :key="destination"
+          @click="handleResultClick(destination)">
+          <p>{{ destination }}</p>
+        </div>
+        <div class="item error" v-if="input && !filteredList().length">
+          <p>No results found!</p>
+        </div>
       </div>
     </div>
   </div>
-
 </template>
 
 <style>
@@ -129,7 +126,7 @@ body {
 
 input {
   box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
-  rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+    rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
 }
 
 .item {
@@ -139,20 +136,22 @@ input {
   color: white;
   border-radius: 5px;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px,
-  rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
+    rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
 }
 
 .destinations {
   background-color: rgb(97, 62, 252);
   cursor: pointer;
-  margin:0;
+  margin: 0;
   margin-bottom: 10px;
 }
 
 .error {
-  width: 250px; /* Set the same width as the .item class */
+  width: 250px;
+  /* Set the same width as the .item class */
   background-color: tomato;
-  margin: 0 auto 10px auto; /* Maintain the same margin as .item */
+  margin: 0 auto 10px auto;
+  /* Maintain the same margin as .item */
   padding: 10px 20px;
   color: white;
   border-radius: 5px;
@@ -206,7 +205,11 @@ input {
   margin: 5px;
 }
 
-.location:focus, .check-in:focus, .check-out:focus, .guests:focus, .search-button:focus {
+.location:focus,
+.check-in:focus,
+.check-out:focus,
+.guests:focus,
+.search-button:focus {
   outline: none;
 }
 

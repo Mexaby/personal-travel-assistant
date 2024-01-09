@@ -16,33 +16,35 @@
       <div class="about-us-text">
         <h1>What is JourneyGenius?</h1>
         <p>
-          JourneyGenius is a travel assistant that helps you plan your trip from start to finish. We provide you with the best flight, accommodation, and venue options based on your preferences. We also provide you with a detailed itinerary of your trip, so you can focus on enjoying your trip.
+          JourneyGenius is a travel assistant that helps you plan your trip from start to finish. We provide you with the
+          best flight, accommodation, and venue options based on your preferences. We also provide you with a detailed
+          itinerary of your trip, so you can focus on enjoying your trip.
         </p>
         <p>
-          At JourneyGenius, we envision a world where every journey is a seamless blend of discovery and ease. Our vision is to empower travelers with a smart companion that anticipates needs, unlocks hidden gems, and transforms each moment into an unforgettable adventure. With JourneyGenius, embark on a future of hassle-free exploration, where your travel aspirations become reality.
+          At JourneyGenius, we envision a world where every journey is a seamless blend of discovery and ease. Our vision
+          is to empower travelers with a smart companion that anticipates needs, unlocks hidden gems, and transforms each
+          moment into an unforgettable adventure. With JourneyGenius, embark on a future of hassle-free exploration, where
+          your travel aspirations become reality.
         </p>
       </div>
       <img src="./assets/about1.jpg" class="deco-image" />
     </div>
     <div class="offers">
-      
+      <travel-offer title="Paris" imageUrl="phuket.jpg"
+        description="Paris, France's capital, is a major European city and a global center for art, fashion, gastronomy and culture. Its 19th-century cityscape is crisscrossed by wide boulevards and the River Seine."
+        price="4 nights - $1000"/>
     </div>
   </div>
 </template>
 
-      <!-- <div class="action-buttons">
-      <button class="plan-trip-button" @click="planTrip">Plan a Trip</button>
-      <button class="flights-button" @click="goTo('/flights')">Flights</button>
-      <button class="accomodations-button" @click="goTo('/accommodations')">Accommodation</button>
-      <button class="venues-button" @click="goTo('/venues')">Venues</button>
-      </div> -->
-
 <script>
 import AppHeader from './page-components/AppHeader.vue';
+import TravelOffer from './page-components/TravelOffer.vue';
 
 export default {
   components: {
     AppHeader,
+    TravelOffer,
   },
 
   methods: {
@@ -65,7 +67,6 @@ export default {
 </script>
 
 <style scoped>
-
 .intro {
   position: relative;
   width: 100%;

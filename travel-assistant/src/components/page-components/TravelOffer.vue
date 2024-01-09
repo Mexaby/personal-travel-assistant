@@ -1,7 +1,7 @@
 <template>
     <div class="offer-card">
       <h2 class="offer-title">{{ title }}</h2>
-      <img :src="image" alt="Destination image" class="offer-image">
+      <img :src="require('../assets/' + imageUrl || 'paris.jpg' + '')" class="offer-image" />
       <p class="offer-description">{{ description }}</p>
       <p class="offer-price">{{ price }}</p>
       <button class="reserve-button">Reserve Now</button>
@@ -16,7 +16,7 @@
         type: String,
         required: true
       },
-      image: {
+      imageUrl: {
         type: String,
         required: true
       },
@@ -38,6 +38,7 @@
     box-sizing: border-box;
     padding: 20px;
     border-radius: 5px;
+    background-color: azure;
   }
   .offer-title, .offer-description, .offer-price {
     margin: 10px 0;
