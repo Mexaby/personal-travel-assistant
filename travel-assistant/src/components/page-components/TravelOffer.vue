@@ -37,6 +37,7 @@
     width: 33.33%;
     box-sizing: border-box;
     padding: 20px;
+    border-radius: 5px;
   }
   .offer-title, .offer-description, .offer-price {
     margin: 10px 0;
