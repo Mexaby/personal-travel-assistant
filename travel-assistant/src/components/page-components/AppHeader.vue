@@ -48,7 +48,7 @@ export default {
 }
 
 .title {
-  font-size: 1.5em;
+  font-size: 2em;
   cursor: pointer;
   transform: translate(70px);
 }

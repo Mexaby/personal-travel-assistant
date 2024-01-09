@@ -21,6 +21,7 @@ export default {
   components: {
     AppHeader,
   },
+
   methods: {
     goTo(route) {
       this.$router.push(route);
