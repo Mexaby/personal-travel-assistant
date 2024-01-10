@@ -48,7 +48,7 @@ function search() {
     } else {
       venue.location = input.value;
       localStorage.setItem("venue", JSON.stringify(venue));
-      goTo("/listingAccommodations")
+      goTo("/listingvenues")
     }
   }
 }
@@ -67,10 +67,10 @@ function search() {
           <input v-model="input" type="text" class="location" placeholder="Select your location... "/>
           <input v-model="venue.date" type="date" class="date" placeholder="Date" />
           <label for="activities">Choose a venue:</label> 
-          <select v-model="venue.activity" name="activities" id="activities">
-            <option value="Restaurants">Restaurants</option>
-            <option value="Local Cultural Events">Local Cultural Events</option>
-            <option value="Meetings">Meetings</option>
+          <select v-model="venue.activity" name="activities" id="activities" >
+            <option value="Restaurant">Restaurants</option>
+            <option value="LocalCulturalEvent">Local Cultural Events</option>
+            <option value="Meeting">Meetings</option>
           </select>
           <input v-model="venue.attendees" type="number" class="attendees" placeholder="Attendees" />
           <button @click="search" class="search-button">Search</button>

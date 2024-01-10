@@ -7,6 +7,8 @@ import AccountPage from '../components/AccountPage.vue'
 import AssistantPage from '../components/AssistantPage.vue'
 import ListAccommodation from "@/components/ListAccommodation.vue";
 import AccommodationDetails from "@/components/AccommodationDetails.vue";
+import VenueList from "@/components/VenueList.vue";
+import VenueDetails from "@/components/VenueDetails.vue";
 
 const routes = [
     {
@@ -39,6 +41,17 @@ const routes = [
         path: '/venues',
         name: 'venues',
         component: VenuesPage
+    },
+    {
+        path: '/listingvenues',
+        name: 'listingvenues',
+        component: VenueList
+    },
+    {
+        path: '/venue/:id',
+        name: 'venueDetails',
+        component: VenueDetails,
+        props: true
     },
     {
         path: '/account',
