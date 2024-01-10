@@ -5,13 +5,24 @@
     <button @click="goTo('/')">Back to Home</button>
     <div class=InputsClass>
     <div class=InputGroup>
+    <div class="DropdownTransport">
+    <label for="dropdownInput">Select transport:</label>
+    <select id="dropdownInput" v-model="selectedOption">
+      <option value="opcion1">Plane</option>
+      <option value="opcion2">Train</option>
+      <option value="opcion3">Bus</option>
+      <option value="opcion4">Boat</option>
+    </select>
+    </div>
+
+
      <div class= "FromContainer">
       <span class="From"> From </span>
-      <input type="text" class="location1" placeholder="Country, city or airport">
+      <input type="text" class="location1" placeholder="Select your location...">
     </div>
     <div class= "ToContainer">
       <span class="To"> To </span>
-      <input type="text" class="location2" placeholder="Country, city or airport">
+      <input type="text" class="location2" placeholder="Search destination...">
     </div>
    <div class= "DepartContainer">
       <span class="Depart"> Depart </span>
@@ -67,11 +78,30 @@ body {
   background-color: rgb(234, 242, 255);
 }
 
+
+
+#dropdownInput{
+  position: relative;
+  background: white url(http://192.168.1.95:8080/img/search-icon.f7bfd452.svg) no-repeat 0 center;
+  background-size: 15px 15px;
+  width: 200px;
+  height: 30px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  padding: 5px 30px 5px 20px;
+  margin: 20px;
+  position: relative;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
+  rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+}
+
+
+
 .location2{
   position: relative;
   background: white url(http://192.168.1.95:8080/img/search-icon.f7bfd452.svg) no-repeat 0 center;
   background-size: 15px 15px;
-  width: 250px;
+  width: 200px;
   height: 30px;
   border-radius: 5px;
   border: 1px solid #ccc;
@@ -82,7 +112,7 @@ body {
   position: relative;
   background: white url(http://192.168.1.95:8080/img/search-icon.f7bfd452.svg) no-repeat 0 center;
   background-size: 15px 15px;
-  width: 250px;
+  width: 200px;
   height: 30px;
   border-radius: 5px;
   border: 1px solid #ccc;
@@ -93,7 +123,7 @@ body {
   position: relative;
   background: white url(http://192.168.1.95:8080/img/search-icon.f7bfd452.svg) no-repeat 0 center;
   background-size: 15px 15px;
-  width: 250px;
+  width: 200px;
   height: 30px;
   border-radius: 5px;
   border: 1px solid #ccc;
@@ -104,7 +134,7 @@ body {
   position: relative;
   background: white url(http://192.168.1.95:8080/img/search-icon.f7bfd452.svg) no-repeat 0 center;
   background-size: 15px 15px;
-  width: 250px;
+  width: 200px;
   height: 30px;
   border-radius: 5px;
   border: 1px solid #ccc;
@@ -115,13 +145,22 @@ body {
   position: relative;
   background: white url(http://192.168.1.95:8080/img/search-icon.f7bfd452.svg) no-repeat 0 center;
   background-size: 15px 15px;
-  width: 250px;
+  width: 200px;
   height: 30px;
   border-radius: 5px;
   border: 1px solid #ccc;
   padding: 5px 30px 5px 20px;
 }
 
+label {
+  position: absolute;
+  top: 0px;
+  left:20px;
+}
+
+.DropdownTransport{
+  position: relative;
+}
 .To {
   position: absolute;
   top: 0px;
