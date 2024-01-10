@@ -7,7 +7,7 @@
       <div class=InputGroup>
         <div class="DropdownTransport">
           <label for="dropdownInput">Select transport:</label>
-          <select clas id="dropdownInput" v-model="travel.transport">
+          <select id="dropdownInput" v-model="travel.transport">
             <option value="opcion1">Plane</option>
             <option value="opcion2">Train</option>
             <option value="opcion3">Bus</option>
@@ -50,8 +50,6 @@
         <div class="item error" v-if="input1 && !filteredList1().length">
           <p>No results found!</p>
         </div>
-       
-
       </div>
       <div v-if="showDestinations2 && input2 !== ''" class="destinations-container2">
         <div class="item destinations" v-for="destination2 in filteredList2()" :key="destination2"
@@ -61,8 +59,6 @@
         <div class="item error" v-if="input2 && !filteredList2().length">
           <p>No results found!</p>
         </div>
-       
-
       </div>
     </div>
   </div>
@@ -127,6 +123,8 @@ function search() {
     alert("Please select both check-in and check-out dates!");
   } else if (isNaN(travel.travellers) || travel.travellers <= 0) {
     alert("Please enter a valid number of guests!");
+  } else if (isNaN(travel.transport)) {
+    alert("Please select a transport option!");
   } else {
     const today = new Date();
     const departDate = new Date(travel.date1);
@@ -140,7 +138,7 @@ function search() {
       travel.from = input1.value;
       travel.to = input2.value;
       localStorage.setItem("travel", JSON.stringify(travel));
-      goTo("/listingtravels")
+      goTo("/listingTravels")
     }
   }
 }
@@ -331,20 +329,28 @@ label {
 
 .InputsClass {
   margin-top: 50px;
+  position: relative;
+  z-index: 1;
  }
   .destinations-container {
-  width: 250px;
-  margin-left: 0%;
-  display: flex;
+  width: 145px;
+  margin-left:  100px;
+  display: block;
   flex-direction: column;
   align-items: center;
+  position:absolute;
+  top: 40%;
+  z-index: 2;
 }
 .destinations-container2 {
-  width: 250px;
-  margin-left: 20%;
-  display: flex;
+  width: 200px;
+  margin-left: 500px;
+  display: block;
   flex-direction: column;
   align-items: center;
+  position:absolute;
+  top: 40%;
+  z-index: 2;
 }
 
 .destinations {
@@ -353,5 +359,16 @@ label {
   margin: 0;
   margin-bottom: 10px;
 }
+
+.item {
+  width: 200px;
+  margin: 0 auto 10px auto;
+  padding: 10px 20px;
+  color: white;
+  border-radius: 5px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px,
+    rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
+}
+
 
 </style>

@@ -7,6 +7,7 @@ import AccountPage from '../components/AccountPage.vue'
 import AssistantPage from '../components/AssistantPage.vue'
 import ListAccommodation from "@/components/ListAccommodation.vue";
 import AccommodationDetails from "@/components/AccommodationDetails.vue";
+import ListTravels from "@/components/ListTravels.vue";
 
 const routes = [
     {
@@ -49,7 +50,13 @@ const routes = [
         path: '/assistant',
         name: 'assistant',
         component: AssistantPage
+    },
+    {
+        path: '/listingTravels',
+        name: 'listingTravels',
+        component: ListTravels
     }
+    
 ]
 
 const router = createRouter({
