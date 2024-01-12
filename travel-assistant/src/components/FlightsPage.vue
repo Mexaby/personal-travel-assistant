@@ -42,12 +42,12 @@
         </div>
         <button  @click="search" class="Searchbutton">Search</button>
       </div>
-      <div v-if="showDestinations1 && input1 !== ''" class="destinations-container">
+      <div v-if="showDestinations1 && input1 !== ''" class="destinations-container1">
         <div class="item destinations" v-for="destination1 in filteredList1()" :key="destination1"
           @click="handleResultClick1(destination1)">
           <p>{{ destination1 }}</p>
         </div>
-        <div class="item error" v-if="input1 && !filteredList1().length">
+        <div class="items errors" v-if="input1 && !filteredList1().length">
           <p>No results found!</p>
         </div>
       </div>
@@ -56,7 +56,7 @@
           @click="handleResultClick2(destination2)">
           <p>{{ destination2 }}</p>
         </div>
-        <div class="item error" v-if="input2 && !filteredList2().length">
+        <div class="items errors" v-if="input2 && !filteredList2().length">
           <p>No results found!</p>
         </div>
       </div>
@@ -119,11 +119,13 @@ function search() {
     alert("Please enter a valid location!");
   } else if (!destinations.includes(input2.value)) {
     alert("Please enter a valid destination!");
+  } else if (destinations.includes(input2.value)== destinations.includes(input1.value)) {
+    alert("Same location and destination are not valid!");
   } else if (travel.date1 === "" || travel.date2 === "") {
     alert("Please select both check-in and check-out dates!");
   } else if (isNaN(travel.travellers) || travel.travellers <= 0) {
     alert("Please enter a valid number of guests!");
-  } else if (isNaN(travel.transport)) {
+  } else if (!isNaN(travel.transport)) {
     alert("Please select a transport option!");
   } else {
     const today = new Date();
@@ -332,9 +334,9 @@ label {
   position: relative;
   z-index: 1;
  }
-  .destinations-container {
-  width: 145px;
-  margin-left:  100px;
+  .destinations-container1 {
+  width: 200px;
+  margin-left:  260px;
   display: block;
   flex-direction: column;
   align-items: center;
@@ -358,9 +360,11 @@ label {
   cursor: pointer;
   margin: 0;
   margin-bottom: 10px;
+  width: 200px;
 }
 
-.item {
+
+.items {
   width: 200px;
   margin: 0 auto 10px auto;
   padding: 10px 20px;
@@ -369,6 +373,17 @@ label {
   box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px,
     rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
 }
+.errors {
+  width: 200px;
+  background-color: tomato;
+  margin: 0 auto 10px auto;
+  padding: 10px 20px;
+  color: white;
+  border-radius: 5px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
+}
+
+
 
 
 </style>
