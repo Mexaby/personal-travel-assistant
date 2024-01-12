@@ -43,27 +43,27 @@ class Venue {
     }
 }
 
-export function createVenues(activity) {
-    let venues = [];
-    const destinationsList = ["Cluj-Napoca", "Alicante", "Bucharest", "Budapest", "Istanbul", "London", "Madrid", "Paris", "Rome", "Vienna"];
-    if (activity === "Restaurant" || activity === "LocalCulturalEvent" || activity === "Meeting") {
-    
-    for (let i = 0; i < destinationsList.length; i++) {
-        for (let j =  0; j < 8; j++)
-        {
-            let id = i * 10 + j;
+export function createVenues(location,activity) {
+    let venues = []; 
+        for (let j =  0; j < 8; j++){
+            let id = j;
             let name = activity + " " + (j + 1);
-            let description = name + " description";
-            let price = (j + 1) * 100;
-            let location = destinationsList[i];
+            let text = ["family", "lover", "colleagues", "acquaintances","friends","companions","partner"];
+            let description = "It is a lovely " + activity + " located on " + location + ".The perfect place to go with your "+ text[j];
+            let price;
+            if (activity === "Restaurant") {
+                price = (j + 1) * 20;
+            } else if (activity === "LocalCulturalEvent") {
+                price = (j + 1) * 10;
+            } else {
+                price = (j + 1) * 15;
+            }
             let image = activity + (j + 1) + ".jpg";
-            let person = (j % 4) + 1;
-            let rating = (j % 5);
+            let person = (j % 3) + 1;
+            let rating = Math.floor(Math.random() * 5) + 1;
             let venue = new Venue(id, name, description, price, location, image, person, rating);
-            venues.push(venue);
-        }
+            venues.push(venue); 
     }
-}
     return venues;
 }
 
