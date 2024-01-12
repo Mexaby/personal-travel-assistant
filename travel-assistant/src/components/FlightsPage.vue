@@ -119,7 +119,7 @@ function search() {
     alert("Please enter a valid location!");
   } else if (!destinations.includes(input2.value)) {
     alert("Please enter a valid destination!");
-  } else if (destinations.includes(input2.value)== destinations.includes(input1.value)) {
+  } else if (input2.value === input1.value) {
     alert("Same location and destination are not valid!");
   } else if (travel.date1 === "" || travel.date2 === "") {
     alert("Please select both check-in and check-out dates!");
