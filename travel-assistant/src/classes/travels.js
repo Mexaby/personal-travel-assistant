@@ -59,31 +59,33 @@ class Travel {
 
 }
 
-export function createTravels() {
+export function createTravels(from,to) {
     let travels = [];
-    const locationList = ["Cluj-Napoca", "Alicante", "Bucharest", "Budapest", "Istanbul", "London", "Madrid", "Paris", "Rome", "Vienna"];
-    const destinationList = ["Cluj-Napoca", "Alicante", "Bucharest", "Budapest", "Istanbul", "London", "Madrid", "Paris", "Rome", "Vienna"];
-    for (let k = 0; k < locationListList.length; k++) {
-    for (let i = 0; i < destinationsList.length; i++) {
-        for (let j =  0; j < 10; j++)
-        {
-            let id = k * 100 + i*10 + j;
-            let company = "Company " + (j + 1);
-            let description = company + " description";
-            let price = (j + 1) * 100;
-            let location = locationList[k];
-            let destination = destinationList[i];
-            let departureTime = generarHoraAleatoria();
-            let arrivalTime= generarHoraMayorQue(departureTime);
-            let duration = compararHoras(departureTime, arrivalTime);
-            let image = "hotel" + (j + 1) + ".jpg";
-            let person = (j % 4) + 1;
-            let travel = new Travel(id, company, description,arrivalTime, departureTime, duration, location, destination, price, image, person);
-            travels.push(travel);
-        }
-    } }
-    return travels;
+    // const locationList = ["Cluj-Napoca", "Alicante", "Bucharest", "Budapest", "Istanbul", "London", "Madrid", "Paris", "Rome", "Vienna"];
+    // const destinationList = ["Cluj-Napoca", "Alicante", "Bucharest", "Budapest", "Istanbul", "London", "Madrid", "Paris", "Rome", "Vienna"];
+    // for (let k = 0; k < locationList.length; k++) {
+    //     for (let i = 0; i < destinationList.length; i++) {
+            for (let j =  0; j < 10; j++) {
 
+                // let id = k * 100 + i*10 + j;
+                let id=j;
+                let company = "Company " + (j + 1);
+                let description = company + " description";
+                let price = (j + 1) * 100;
+                let location = from;
+                let destination = to;
+                let departureTime = generarHoraAleatoria();
+                let arrivalTime= generarHoraMayorQue(departureTime);
+                let p = compararHoras(departureTime, arrivalTime);
+                let duration = -p;
+                let image = "travel" + (j + 1) + ".jpg";
+                let person = (j % 4) + 1;
+            let travel = new Travel(id, company, description, arrivalTime, departureTime, duration, location, destination, price, image, person);
+            travels.push(travel);
+           }
+    //     } 
+    // }
+    return travels;
 }
 
 function generarHoraAleatoria() {

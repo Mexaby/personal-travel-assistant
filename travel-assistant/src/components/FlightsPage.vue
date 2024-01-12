@@ -8,10 +8,10 @@
         <div class="DropdownTransport">
           <label for="dropdownInput">Select transport:</label>
           <select id="dropdownInput" v-model="travel.transport">
-            <option value="opcion1">Plane</option>
-            <option value="opcion2">Train</option>
-            <option value="opcion3">Bus</option>
-            <option value="opcion4">Boat</option>
+            <option value="plane">Plane</option>
+            <option value="train">Train</option>
+            <option value="bus">Bus</option>
+            <option value="boat">Boat</option>
           </select>
         </div>
         <div class="FromContainer">
@@ -43,7 +43,7 @@
         <button  @click="search" class="Searchbutton">Search</button>
       </div>
       <div v-if="showDestinations1 && input1 !== ''" class="destinations-container1">
-        <div class="item destinations" v-for="destination1 in filteredList1()" :key="destination1"
+        <div class="item22 destinations" v-for="destination1 in filteredList1()" :key="destination1"
           @click="handleResultClick1(destination1)">
           <p>{{ destination1 }}</p>
         </div>
@@ -52,7 +52,7 @@
         </div>
       </div>
       <div v-if="showDestinations2 && input2 !== ''" class="destinations-container2">
-        <div class="item destinations" v-for="destination2 in filteredList2()" :key="destination2"
+        <div class="item22 destinations" v-for="destination2 in filteredList2()" :key="destination2"
           @click="handleResultClick2(destination2)">
           <p>{{ destination2 }}</p>
         </div>
@@ -185,7 +185,13 @@ body {
     rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
 }
 
-
+.item22 {
+    margin: 0 auto 10px auto;
+    padding: 10px 20px;
+    color: white;
+    border-radius: 5px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
+}
 
 .location2 {
   position: relative;
@@ -353,6 +359,7 @@ label {
   position:absolute;
   top: 40%;
   z-index: 2;
+  
 }
 
 .destinations {
@@ -373,6 +380,8 @@ label {
   box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px,
     rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
 }
+
+
 .errors {
   width: 200px;
   background-color: tomato;

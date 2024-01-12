@@ -1,17 +1,17 @@
 <script setup>
 
-import {createAccommodations} from "@/classes/travelsphotos";
+import {createTravels} from "@/classes/travels";
 import {computed} from "vue";
 import AppHeader from './page-components/AppHeader.vue';
 import {useRouter} from "vue-router";
 
 const travel = JSON.parse(localStorage.getItem("travel"));
 
-const initialList = createTravels();
+const initialList = createTravels(travel.from,travel.to);
 
 
 const list = computed(() => {
-  return initialList.filter(item => item.location === accommodation.location && item.person >= accommodation.guests);
+  return initialList.filter(item => item.location === travel.from && item.destination === travel.to && item.person >= travel.travellers);
 });
 
 const router = useRouter();
@@ -21,23 +21,28 @@ const goTo = (route) => {
 </script>
 
 <template>
-  <div class="accommodations-page">
+  <div class="travels-page">
     <AppHeader/>
-    <div class="accommodations-list">
-      <div v-for="item in list" :key="item.id" class="accommodation-item">
-        <img :src="require(`@/classes/photos/${item.image}`)" alt="photo" class="accommodation-image">
-        <div class="accommodation-details">
-          <div class="accommodation-name">{{ item.name }}</div>
-          <div class="accommodation-location">{{ item.location }}</div>
-          <div class="accommodation-price">Price: {{ item.price }}$</div>
-          <div class="accommodation-rating">Rating: {{ item.rating}}/5</div>
-          <router-link :to="{ name: 'AccommodationDetails', params: { id: item.id } }" class="details-link">Details</router-link>
+    <p>soyListTravels</p>
+    <div class="travels-list">
+      <div v-for="item in list" :key="item.id" class="travels-item">
+        <img :src="require(`@/classes/travelsphotos/${travel.transport}/${item.image}`)" alt="photo" class="travel-image">
+        <div class="travel-details">
+          <div class="travel-company">Travel company: {{ item.company }}</div>
+          <div class="travel-location">Location: {{ item.location }}</div>
+          <div class="travel-destination">Destination: {{ item.destination }}</div>
+          <div class="travel-departure">Departure Time: {{ item.departureTime }}</div>
+          <div class="travel-arrival">Arrival Time: {{ item.arrivalTime }}</div>
+          <div class="travel-duration">Duration: {{ item.duration }}</div>
+          <div class="travel-price">Price/per person: {{ item.price }}$</div>
         </div>
       </div>
     </div>
     <button @click="goTo('/')">Back to Home</button>
   </div>
 </template>
+
+
 
 <style scoped>
 .details-link {
@@ -54,17 +59,17 @@ const goTo = (route) => {
 .details-link:hover {
   background-color: #2980b9;
 }
-.accommodations-page {
+.travels-page {
   padding: 20px;
 }
 
-.accommodations-list {
+.travels-list {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   gap: 20px;
 }
 
-.accommodation-item {
+.travel-item {
   display: flex;
   flex-direction: column;
   border: 1px solid #ccc;
@@ -72,34 +77,34 @@ const goTo = (route) => {
   overflow: hidden;
 }
 
-.accommodation-image {
+.travel-image {
   width: 100%;
   height: 150px;
   object-fit: cover;
   border-bottom: 1px solid #ccc;
 }
 
-.accommodation-details {
+.travel-details {
   padding: 10px;
 }
 
-.accommodation-name {
+.travel-name {
   font-size: 18px;
   font-weight: bold;
   margin-bottom: 5px;
 }
 
-.accommodation-location {
+.travel-location {
   color: #555;
   margin-bottom: 5px;
 }
 
-.accommodation-price,
-.accommodation-rating {
+.travel-price,
+.travel-rating {
   margin-bottom: 5px;
 }
 
-.accommodation-description {
+.travel-description {
   font-style: italic;
   color: #777;
 }
