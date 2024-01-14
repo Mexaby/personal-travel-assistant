@@ -1,5 +1,5 @@
 class Travel {
-    constructor(id, company, description,arrivalTime, departureTime, duration, location, destination, price, image, person, date) {
+    constructor(id, company, description,arrivalTime, departureTime, duration, location, destination, price, image, person, date, transport) {
         this.id = id;
         this.company = company;
         this.description = description;
@@ -12,6 +12,7 @@ class Travel {
         this.image = image;
         this.person = person;
         this.date = date;
+        this.transport = transport;
     }
 
     get getId() {
@@ -61,9 +62,13 @@ class Travel {
     get getDate() {
         return this.date;
     }
+
+    get getTransport() {
+        return this.transport;
+    }
 }
 
-export function createTravels(from,to, date1) {
+export function createTravels(from,to, date1, transport1) {
     let travels = [];
             for (let j =  0; j < 10; j++) {
                 let id=j;
@@ -79,14 +84,15 @@ export function createTravels(from,to, date1) {
                 let duration = -p;
                 let image = "travel" + (j + 1) + ".jpg";
                 let person = (j % 4) + 1;
-            let travel = new Travel(id, company, description, arrivalTime, departureTime, duration, location, destination, price, image, person, date);
+                let transport = transport1;
+            let travel = new Travel(id, company, description, arrivalTime, departureTime, duration, location, destination, price, image, person, date, transport);
             travels.push(travel);
            }
   
     return travels;
 }
 
-export function createTravelsReturn(to, from, date2) {
+export function createTravelsReturn(to, from, date2, transport2) {
     let travels = [];
             for (let j =  0; j < 10; j++) {
                 let id=j;
@@ -102,7 +108,8 @@ export function createTravelsReturn(to, from, date2) {
                 let duration = -p;
                 let image = "travel" + (j + 1) + ".jpg";
                 let person = (j % 4) + 1;
-            let travel = new Travel(id, company, description, arrivalTime, departureTime, duration, location, destination, price, image, person, date);
+                let transport = transport2;
+            let travel = new Travel(id, company, description, arrivalTime, departureTime, duration, location, destination, price, image, person, date, transport);
             travels.push(travel);
            }
   

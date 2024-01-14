@@ -6,7 +6,7 @@ import { useRouter } from "vue-router";
 
 const travel = JSON.parse(localStorage.getItem("travel"));
 
-const initialList = createTravelsReturn(travel.from, travel.to, travel.date2);
+const initialList = createTravelsReturn(travel.from, travel.to, travel.date2, travel.transport);
 
 const list = computed(() => {
   return initialList.filter(

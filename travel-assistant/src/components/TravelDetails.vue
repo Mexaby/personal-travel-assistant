@@ -5,7 +5,11 @@
         <div v-for="travel in [travelGo, travelReturn]" :key="travel.id" class="details-container">
           <h2>{{ travel.name }}</h2>
           <div class="image-container">
-         
+            <img
+          :src="require(`@/classes/travelsphotos/${travel.transport}/${travel.image}`)"
+          alt="photo"
+          class="travel-image"
+        />
           </div>
           <div class="details">
             <div class="info">
@@ -13,15 +17,15 @@
               <div><strong>Destination:</strong> {{ travel.destination }}</div>
               <div><strong>Departure Time:</strong> {{ travel.departureTime }}</div>
               <div><strong>Arrival Time:</strong> {{ travel.arrivalTime }}</div>
-              <div><strong>Date:</strong> {{ travel.date}}</div>
+              <div><strong>Date:</strong> {{ travel.date }}</div>
               <div><strong>Company:</strong> {{ travel.company }}</div>
-              <div><strong>Price:</strong> {{ travel.price }}</div>
+              <div><strong>Price:</strong> {{ travel.price }} $/per person</div>
             </div>
           </div>
         </div>
         <div class="button-container">
-          <button @click="reserve" class="reserve-button">Reserve</button>
-          <button @click="goBack" class="go-back-button">Go Back</button>
+          <button @click="goTo('/accommodations')" class="reserve-button">Reserve</button>
+          <button @click="goTo('/listingTravelsReturn')" class="go-back-button">Go Back</button>
         </div>
       </div>
       <div v-else class="loading-message">
@@ -32,11 +36,16 @@
   
   <script setup>
 //   import { ref } from "vue";
-//   import { useRouter } from "vue-router";
+  import { useRouter } from "vue-router";
   import AppHeader from './page-components/AppHeader.vue';
   
   const travelGo = JSON.parse(localStorage.getItem("travelGo"));
   const travelReturn = JSON.parse(localStorage.getItem("travelReturn"));
+
+  const router = useRouter();
+ const goTo = (route) => {
+  router.push(route);
+};
 
  
   

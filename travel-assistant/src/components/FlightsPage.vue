@@ -7,7 +7,7 @@
       <div class=InputGroup>
         <div class="DropdownTransport">
           <label for="dropdownInput">Select transport:</label>
-          <select id="dropdownInput" v-model="travel.transport">
+          <select id="dropdownInput" v-model="travel.transport" class="transport">
             <option value="plane">Plane</option>
             <option value="train">Train</option>
             <option value="bus">Bus</option>

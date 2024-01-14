@@ -5,7 +5,7 @@ import AppHeader from './page-components/AppHeader.vue';
 import { useRouter } from "vue-router";
 
 const travel = JSON.parse(localStorage.getItem("travel"));
-const initialList = createTravels(travel.from, travel.to, travel.date1);
+const initialList = createTravels(travel.from, travel.to, travel.date1, travel.transport);
 
 const list = computed(() => {
   return initialList.filter(
