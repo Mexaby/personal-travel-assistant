@@ -225,7 +225,7 @@ button {
 }
 
 .select-button {
-  background-color: #3498db;
+  background-color:  #4CAF50;
   color: #fff;
   padding: 10px;
   border: none;

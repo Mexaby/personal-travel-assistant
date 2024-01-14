@@ -2,7 +2,7 @@
   <div>
     <AppHeader />
     <div>Flights Page</div>
-    <button @click="goTo('/')">Back to Home</button>
+    <button @click="goTo('/')" class="button-backHome">Back to Home</button>
     <div class=InputsClass>
       <div class=InputGroup>
         <div class="DropdownTransport">
@@ -183,6 +183,17 @@ body {
   position: relative;
   box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
     rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+}
+ 
+
+.button-backHome{
+  margin-top: 20px;
+  padding: 10px;
+  background-color: #3498db;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
 }
 
 .item22 {

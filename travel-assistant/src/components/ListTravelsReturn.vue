@@ -68,6 +68,7 @@ function detailsAndBuy(item){
       </div>
     </div>
     <button @click="goTo('/')">Back to Home</button>
+    <button @click="goTo('/listingTravels')"> Back to departure</button>
   </div>
 </template>
 
