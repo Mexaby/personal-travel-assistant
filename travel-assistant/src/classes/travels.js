@@ -1,5 +1,5 @@
 class Travel {
-    constructor(id, company, description,arrivalTime, departureTime, duration, location, destination, price, image, person) {
+    constructor(id, company, description,arrivalTime, departureTime, duration, location, destination, price, image, person, date) {
         this.id = id;
         this.company = company;
         this.description = description;
@@ -11,6 +11,7 @@ class Travel {
         this.duration =duration;
         this.image = image;
         this.person = person;
+        this.date = date;
     }
 
     get getId() {
@@ -57,34 +58,54 @@ class Travel {
         return this.person;
     }
 
+    get getDate() {
+        return this.date;
+    }
 }
 
-export function createTravels(from,to) {
+export function createTravels(from,to, date1) {
     let travels = [];
-    // const locationList = ["Cluj-Napoca", "Alicante", "Bucharest", "Budapest", "Istanbul", "London", "Madrid", "Paris", "Rome", "Vienna"];
-    // const destinationList = ["Cluj-Napoca", "Alicante", "Bucharest", "Budapest", "Istanbul", "London", "Madrid", "Paris", "Rome", "Vienna"];
-    // for (let k = 0; k < locationList.length; k++) {
-    //     for (let i = 0; i < destinationList.length; i++) {
             for (let j =  0; j < 10; j++) {
-
-                // let id = k * 100 + i*10 + j;
                 let id=j;
                 let company = "Company " + (j + 1);
                 let description = company + " description";
                 let price = (j + 1) * 100;
                 let location = from;
                 let destination = to;
+                let date = date1;
                 let departureTime = generarHoraAleatoria();
                 let arrivalTime= generarHoraMayorQue(departureTime);
                 let p = compararHoras(departureTime, arrivalTime);
                 let duration = -p;
                 let image = "travel" + (j + 1) + ".jpg";
                 let person = (j % 4) + 1;
-            let travel = new Travel(id, company, description, arrivalTime, departureTime, duration, location, destination, price, image, person);
+            let travel = new Travel(id, company, description, arrivalTime, departureTime, duration, location, destination, price, image, person, date);
             travels.push(travel);
            }
-    //     } 
-    // }
+  
+    return travels;
+}
+
+export function createTravelsReturn(to, from, date2) {
+    let travels = [];
+            for (let j =  0; j < 10; j++) {
+                let id=j;
+                let company = "Company " + (j + 1);
+                let description = company + " description";
+                let price = (j + 1) * 100;
+                let location = from;
+                let destination = to;
+                let date = date2;
+                let departureTime = generarHoraAleatoria();
+                let arrivalTime= generarHoraMayorQue(departureTime);
+                let p = compararHoras(departureTime, arrivalTime);
+                let duration = -p;
+                let image = "travel" + (j + 1) + ".jpg";
+                let person = (j % 4) + 1;
+            let travel = new Travel(id, company, description, arrivalTime, departureTime, duration, location, destination, price, image, person, date);
+            travels.push(travel);
+           }
+  
     return travels;
 }
 

@@ -8,7 +8,8 @@ import AssistantPage from '../components/AssistantPage.vue'
 import ListAccommodation from "@/components/ListAccommodation.vue";
 import AccommodationDetails from "@/components/AccommodationDetails.vue";
 import ListTravels from "@/components/ListTravels.vue";
-
+import ListTravelsReturn from "@/components/ListTravelsReturn.vue";
+import TravelDetails from "@/components/TravelDetails.vue";
 const routes = [
     {
         path: '/',
@@ -55,7 +56,17 @@ const routes = [
         path: '/listingTravels',
         name: 'listingTravels',
         component: ListTravels
-    }
+    },
+    {
+        path: '/listingTravelsReturn',
+        name: 'listingTravelsReturn',
+        component: ListTravelsReturn
+    },
+    {
+        path: '/travelsDetails',
+        name: 'TravelDetails',
+        component: TravelDetails,
+    },
     
 ]
 

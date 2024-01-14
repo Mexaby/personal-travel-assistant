@@ -1,17 +1,18 @@
 <script setup>
-import { createTravels } from "@/classes/travels";
+import { createTravelsReturn } from "@/classes/travels";
 import { computed } from "vue";
 import AppHeader from './page-components/AppHeader.vue';
 import { useRouter } from "vue-router";
 
 const travel = JSON.parse(localStorage.getItem("travel"));
-const initialList = createTravels(travel.from, travel.to, travel.date1);
+
+const initialList = createTravelsReturn(travel.from, travel.to, travel.date2);
 
 const list = computed(() => {
   return initialList.filter(
     (item) =>
-      item.location === travel.from &&
-      item.destination === travel.to &&
+      item.location === travel.to &&
+      item.destination === travel.from &&
       item.person >= travel.travellers
   );
 });
@@ -21,12 +22,11 @@ const goTo = (route) => {
   router.push(route);
 };
 
-function selectAndBuy(item){
-  let travelGo = item;
-  localStorage.setItem("travelGo", JSON.stringify(travelGo));
-  goTo("/listingTravelsReturn")
+function detailsAndBuy(item){
+  let travelReturn = item;
+  localStorage.setItem("travelReturn", JSON.stringify(travelReturn));   
+  goTo("/travelsDetails")
 }
-
 
 </script>
 
@@ -62,8 +62,7 @@ function selectAndBuy(item){
             </div>
           </div>
           <div class="button-container">
-            <!-- <router-link :to="{ name: 'AccommodationDetails', params: { id: item.id } }" class="details-link">Details</router-link> -->
-             <button class="select-button" @click="selectAndBuy(item)">Select and Buy Return</button>
+             <button class="select-button" @click="detailsAndBuy(item)">See details and Buy tickets</button>
           </div>
         </div>
       </div>
@@ -225,7 +224,7 @@ button {
 }
 
 .select-button {
-  background-color: #3498db;
+  background-color: #4CAF50;
   color: #fff;
   padding: 10px;
   border: none;
