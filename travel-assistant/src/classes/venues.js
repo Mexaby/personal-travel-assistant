@@ -45,18 +45,18 @@ class Venue {
 
 export function createVenues(location,activity) {
     let venues = []; 
-        for (let j =  0; j < 8; j++){
+        for (let j =  0; j < 10; j++){
             let id = j;
             let name = activity + " " + (j + 1);
             let text = ["family", "lover", "colleagues", "acquaintances","friends","companions","partner"];
             let description = "It is a lovely " + activity + " located on " + location + ".The perfect place to go with your "+ text[j];
             let price;
             if (activity === "Restaurant") {
-                price = (j + 1) * 20;
+                price = Math.floor(Math.random() * 181) + 20;
             } else if (activity === "LocalCulturalEvent") {
-                price = (j + 1) * 10;
+                price = Math.floor(Math.random() * (91)) + 10;
             } else {
-                price = (j + 1) * 15;
+                price = Math.floor(Math.random() * 45) + 5;
             }
             let image = activity + (j + 1) + ".jpg";
             let person = (j % 3) + 1;

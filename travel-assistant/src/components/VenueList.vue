@@ -7,13 +7,41 @@ import { useRouter } from "vue-router";
 
 const venue = JSON.parse(localStorage.getItem("venue"));
 
-const initialList = createVenues(venue.location,venue.activity);
+const initialList = createVenues(venue.location, venue.activity);
 
-const list = computed(() => {
-  return initialList.filter(
-    (item) => item.location === venue.location && item.person >= venue.attendees
-  );
-});
+const sortType = ref("default"); //
+const sortOrder = ref("asc"); // Can be 'asc' o 'desc'
+const defaultSort = ref("asc");
+
+const sortList = () => {
+  const orderMultiplier = sortOrder.value === "asc" ? 1 : -1;
+  return initialList
+    .filter(
+      (item) =>
+        item.location === venue.location && item.person >= venue.attendees
+    )
+    .sort((a, b) => {
+      if (sortType.value === "default") {
+        return 0;
+      } else if (sortType.value === "rating") {
+        return (a.rating - b.rating) * orderMultiplier;
+      } else {
+        return (a.price - b.price) * orderMultiplier;
+      }
+    });
+};
+
+const sortedList = computed(() => sortList());
+
+const updateSort = (type) => {
+  sortType.value = type;
+  defaultSort.value = sortOrder.value;
+};
+
+const toggleSortOrder = () => {
+  sortOrder.value = sortOrder.value === "asc" ? "desc" : "asc";
+  defaultSort.value = sortOrder.value;
+};
 
 const router = useRouter();
 const goTo = (route) => {
@@ -23,12 +51,14 @@ const goTo = (route) => {
 const showModal = ref(false);
 const selectedVenue = ref(null);
 
-
 function details(item) {
-   
-    selectedVenue.value = item;
-    showModal.value = true;
-  
+  selectedVenue.value = item;
+  showModal.value = true;
+  setTimeout(() => {
+    document
+      .querySelector(".modal-overlay")
+      .classList.add("modal-overlay-enter-active");
+  }, 200);
 }
 
 function closeDetails() {
@@ -39,47 +69,88 @@ function closeDetails() {
 function confirmationButton() {
   //waiting for trip summary
 }
-
 </script>
 
 
 <template>
   <div class="venues-page">
     <AppHeader />
-    <div class="venues-list">
-      <div v-for="item in list" :key="item.id" class="venue-item">
-        <img :src="require(`@/classes/venues/${venue.activity}/${item.image}`)" alt="photo" class="venue-image"/>
-        <div class="venue-details">
-          <div class="venue-name">{{ item.name }}</div>
-          <div class="venue-location">{{ item.location }}</div>
-          <div class="venue-price">Price: {{ item.price }}$</div>
-          <div class="venue-rating">Rating: {{ item.rating }}/5</div>
-          <button @click="details(item)" class="confirm-button">Reserve Now</button>
+    <div v-if="sortedList.length === 0">
+      <p>
+        Sorry, no venues avaliable for the matching filters. Please try again!
+      </p>
+    </div>
+    <div v-else>
+      <div class="allbuttons">
+        <div class="homeorderbuttons">
+          <button @click="goTo('/venues')">Back to Filters</button>
+          <div class="order-buttons">
+            <button @click="updateSort('price')">Order by Price</button>
+            <button @click="updateSort('rating')">Order by Rating</button>
+            <button @click="toggleSortOrder">Toggle Order</button>
+          </div>
+        </div>
+        <button class="filtersbutton" @click="goTo('/')">Back to Home</button>
+      </div>
+      <div class="venues-list">
+        <div v-for="item in sortedList" :key="item.id" class="venue-item">
+          <img
+            :src="require(`@/classes/venues/${venue.activity}/${item.image}`)"
+            alt="photo"
+            class="venue-image"
+          />
+          <div class="venue-details">
+            <div class="venue-name">{{ item.name }}</div>
+            <div class="venue-location">{{ item.location }}</div>
+            <div class="venue-price">Price: {{ item.price }}$ per person</div>
+            <div class="venue-rating">Rating: {{ item.rating }}/5</div>
+            <button @click="details(item)" class="confirm-button">Reserve Now</button>
+          </div>
         </div>
       </div>
     </div>
-    <button @click="goTo('/')">Back to Home</button>
-    <button class="filtersbutton" @click="goTo('/venues')">Back to Filters</button>
     <teleport to="body" fade-enter-active>
-      <div v-if="showModal" class="modal-overlay"> 
-        <div class="modal">
+      <transition name="fade" mode="out-in">
+        <div v-if="showModal" class="modal-overlay">
+          <div class="modal">
             <div v-if="selectedVenue">
-            <img :src="require(`@/classes/venues/${venue.activity}/${selectedVenue.image}`)" alt="Large photo" class="venue-image2"/>
-          <div class="venue-description">{{ selectedVenue.description }}</div>
-          <div class="venue-price">Price: {{ selectedVenue.price }}$</div>
-          <div class="venue-rating">Rating: {{ selectedVenue.rating }}/5</div>
+              <img
+                :src="
+                  require(`@/classes/venues/${venue.activity}/${selectedVenue.image}`)
+                "
+                alt="Large photo"
+                class="venue-image2"
+              />
+              <div class="venue-description">
+                {{ selectedVenue.description }}
+              </div>
+              <div class="venue-price">Price: {{ selectedVenue.price }}$</div>
+              <div class="venue-rating">
+                Rating: {{ selectedVenue.rating }}/5
+              </div>
+            </div>
+            <div class="details-buttons">
+              <button @click="confirmationButton" class="confirm-button">
+                Confirm your reservation!
+              </button>
+              <button @click="closeDetails" class="close-button">Close</button>
+            </div>
           </div>
-        <div class="details-buttons">  
-        <button @click="confirmationButton" class="confirm-button">Confirm your reservation!</button>
-        <button @click="closeDetails" class="close-button">Close</button>
         </div>
-      </div>
-      </div>
+      </transition>
     </teleport>
   </div>
 </template>
 
 <style scoped>
+
+p {
+  padding: 10px;
+  margin: 0;
+  box-sizing: border-box;
+  font-size: larger;
+  font-family: "Montserrat", sans-serif;
+}
 
 .venues-page {
   padding: 20px;
@@ -97,6 +168,12 @@ function confirmationButton() {
   border: 1px solid #ccc;
   border-radius: 8px;
   overflow: hidden;
+  background-color: white;
+}
+
+.venue-item:hover{
+     transform: scale(1.05); 
+    transition: transform 0.3s ease; 
 }
 
 .venue-image {
@@ -160,22 +237,27 @@ button {
   display: flex;
   justify-content: center;
   align-items: center;
-  
+  transition: opacity 1s;
+  opacity: 0;
+}
+
+.modal-overlay-enter-active {
+  opacity: 1;
 }
 
 .modal {
   background: #fff;
   padding: 20px;
   border-radius: 8px;
-  
 }
 
-.details-button{
+.details-button {
   display: inline-block;
 }
+
 .confirm-button {
   padding: 8px 16px;
-  background-color: #3498db;
+  background-color: #2ecc71;
   color: #fff;
   text-decoration: none;
   border-radius: 5px;
@@ -192,7 +274,7 @@ button {
   color: #fff;
   border: none;
   border-radius: 5px;
-  margin-left:10px;
+  margin-left: 10px;
   padding: 8px 25px;
   cursor: pointer;
   transition: background-color 0.3s ease;
@@ -202,8 +284,34 @@ button {
   background-color: #f02e11;
 }
 
-.filtersbutton{
- float : right;
+.allbuttons {
+  display: flex;
+  justify-content: space-between; 
+  align-items: center; 
+  margin-bottom: 20px;
+}
+.homeorderbuttons {
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
+.order-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.filtersbutton {
+  margin-left: auto;
+}
+
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.5s;
+}
+
+.fade-enter,
+.fade-leave-to {
+  opacity: 0;
+}
 </style>

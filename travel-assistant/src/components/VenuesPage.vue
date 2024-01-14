@@ -58,21 +58,32 @@ function search() {
 <template>
   <div>
     <AppHeader />
-    <div>Venues Page</div>
     <button @click="goTo('/')">Back to Home</button>
     <br /><br />
     <div class="search-container">
       <div class="inputs">
         <div class="input-group">
-          <input v-model="input" type="text" class="location" placeholder="Select your location... "/>
-          <input v-model="venue.date" type="date" class="date" placeholder="Date" />
-          <label for="activities">Choose a venue:</label> 
-          <select v-model="venue.activity" name="activities" id="activities" >
-            <option value="Restaurant">Restaurants</option>
-            <option value="LocalCulturalEvent">Local Cultural Events</option>
-            <option value="Meeting">Meetings</option>
-          </select>
-          <input v-model="venue.attendees" type="number" class="attendees" placeholder="Attendees" />
+          <div class="input-container">
+            <label for="location">Select your location:</label>
+            <input v-model="input" type="text" id="location" class="location" placeholder="   Select your location..."/>
+          </div>
+          <div class="input-container">
+            <label for="date">Date:</label>
+            <input v-model="venue.date" type="date" id="date" class="date" />
+          </div>
+          <div class="input-container">
+            <label for="activities">Choose a venue:</label> 
+            <select v-model="venue.activity" name="activities" id="activities">
+              <option value="" disabled selected>Select an Activity</option>
+              <option value="Restaurant">Restaurants</option>
+              <option value="LocalCulturalEvent">Local Cultural Events</option>
+              <option value="Meeting">Meetings</option>
+            </select>
+          </div>
+          <div class="input-container-attendees">
+            <label for="attendees">Attendees:</label>
+            <input v-model="venue.attendees" type="number" id="attendees" class="attendees" placeholder="Attendees" />
+          </div>
           <button @click="search" class="search-button">Search</button>
         </div>
       </div>
@@ -89,12 +100,12 @@ function search() {
   </div>
 </template>
 
-<style>
+<style scoped>
 @import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap");
 
 .destinations-container {
   width: 250px;
-  margin-left: 16.5%;
+  margin-left: 9.6%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -105,6 +116,7 @@ function search() {
   margin: 0;
   box-sizing: border-box;
   font-family: "Montserrat", sans-serif;
+  font-size: medium;
 }
 
 body {
@@ -148,7 +160,8 @@ input {
   background-color: rgb(97, 62, 252);
   cursor: pointer;
   margin: 0;
-  margin-bottom: 10px;
+  margin-top: 5px;
+  margin-bottom: 5px;
 }
 
 .error {
@@ -162,20 +175,20 @@ input {
 }
 
 .location {
-  width: 200px;
+  width: 250px;
   height: 30px;
   border-radius: 5px;
   border: 1px solid #ccc;
-  padding: 5px;
+  padding: 20px;
   margin: 5px;
 }
 
 .date {
-  width: 200px;
+  width: 250px;
   height: 30px;
   border-radius: 5px;
   border: 1px solid #ccc;
-  padding: 5px;
+  padding: 20px;
   margin: 5px;
 }
 
@@ -184,16 +197,18 @@ input {
   height: 30px;
   border-radius: 5px;
   border: 1px solid #ccc;
-  padding: 5px;
+  padding: 20px;
   margin: 5px;
 }
+
 .search-button {
-  width: 100px;
-  height: 30px;
+  width: 120px;
+  height: 50px;
   border-radius: 5px;
   border: 1px solid #ccc;
   padding: 5px;
   margin: 5px;
+  margin-top: 15px;
 }
 
 label {
@@ -206,5 +221,40 @@ label {
 .search-button:focus {
   outline: none;
 }
+
+#activities{
+  width: 250px;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px,
+    rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
+  font-size: medium;
+}
+
+button {
+  margin-top: 20px;
+  padding: 10px;
+  background-color: #3498db;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.input-container {
+  width: 250px; 
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+  margin-right: 50px;
+}
+.input-container-attendees {
+  width: 100px; 
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+  margin-right: 50px;
+}
+
 
 </style>
