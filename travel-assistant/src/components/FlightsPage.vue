@@ -1,8 +1,8 @@
 <template>
   <div>
     <AppHeader />
-    <div>Flights Page</div>
     <button @click="goTo('/')" class="button-backHome">Back to Home</button>
+    <div class="titleTravel">Select your next Travel!</div>
     <div class=InputsClass>
       <div class=InputGroup>
         <div class="DropdownTransport">
@@ -168,7 +168,13 @@ body {
   background-color: rgb(234, 242, 255);
 }
 
-
+.titleTravel {
+    text-align: center;
+    font-size: 30px;
+    color: darkblue;  
+    font-weight: bold;
+    margin-top: 10px; 
+  }
 
 #dropdownInput {
   position: relative;
@@ -187,7 +193,7 @@ body {
  
 
 .button-backHome{
-  margin-top: 20px;
+  margin-top: 10px;
   padding: 10px;
   background-color: #3498db;
   color: #fff;
