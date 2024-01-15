@@ -164,6 +164,7 @@ button {
   border: none;
   border-radius: 5px;
   cursor: pointer;
+  margin-right: 10px;
 }
 
 .departure-details,
