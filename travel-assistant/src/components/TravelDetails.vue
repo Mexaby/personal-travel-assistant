@@ -2,6 +2,7 @@
     <div>
       <AppHeader />
       <div v-if="travelGo && travelReturn" class="travel-details">
+        <div class="travel-details-title">Travel details:</div>
         <div v-for="travel in [travelGo, travelReturn]" :key="travel.id" class="details-container">
           <h2>{{ travel.name }}</h2>
           <div class="image-container">
@@ -60,6 +61,16 @@
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     background-color: white;
+  }
+
+  .travel-details-title {
+    text-align: center;
+    font-size: 20px;
+    color: darkblue;  
+    font-weight: bold;
+    margin-top: 10px; 
+    margin-bottom: 20px;
+    text-decoration: underline;
   }
   
   .image-container {
