@@ -10,6 +10,7 @@ import AccommodationDetails from "@/components/AccommodationDetails.vue";
 import ListTravels from "@/components/ListTravels.vue";
 import ListTravelsReturn from "@/components/ListTravelsReturn.vue";
 import TravelDetails from "@/components/TravelDetails.vue";
+import VenueList from "@/components/VenueList.vue";
 const routes = [
     {
         path: '/',
@@ -41,6 +42,11 @@ const routes = [
         path: '/venues',
         name: 'venues',
         component: VenuesPage
+    },
+    {
+        path: '/listingvenues',
+        name: 'listingvenues',
+        component: VenueList
     },
     {
         path: '/account',

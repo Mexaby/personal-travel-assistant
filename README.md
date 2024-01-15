@@ -26,9 +26,10 @@ Welcome to the Personal Travel Assistant project! This application is designed t
 ## Work Distribution
 - Project Setup and Configuration - _Csaba_
 - Design Language - _Tudor_
-- Home Page (with header and footer) - _Csaba_
+- Home Page (with header) - _Csaba_
 - Flights Page - _Paula_
 - Accomodation Page (with all related components) - _Szabolcs_
 - Venues Page - _Juan_
 - My Account Page - _Tudor_
 - Assistant Page - _Tudor_
+- Summary Page - _Csaba_

@@ -29,11 +29,12 @@ export default {
 }
 
 img {
-    width: 400px;
-    height: 350px;
+    width: 100%;
+    height: auto;
     border-radius: 10px;
     border: 3px solid #145da0;
     box-shadow: 0 0 5px #145da0;
+    margin: 1%;
 }
 
 .image-card-title {
