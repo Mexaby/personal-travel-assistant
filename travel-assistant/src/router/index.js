@@ -9,7 +9,10 @@ import ReservationsPage from '../components/account-pages/ReservationsPage.vue'
 import PrevReservationsPage from '../components/account-pages/PrevReservationsPage.vue'
 import ListAccommodation from "@/components/ListAccommodation.vue";
 import AccommodationDetails from "@/components/AccommodationDetails.vue";
-
+import ListTravels from "@/components/ListTravels.vue";
+import ListTravelsReturn from "@/components/ListTravelsReturn.vue";
+import TravelDetails from "@/components/TravelDetails.vue";
+import VenueList from "@/components/VenueList.vue";
 const routes = [
     {
         path: '/',
@@ -43,6 +46,11 @@ const routes = [
         component: VenuesPage
     },
     {
+        path: '/listingvenues',
+        name: 'listingvenues',
+        component: VenueList
+    },
+    {
         path: '/account',
         name: 'account',
         component: AccountPage
@@ -61,6 +69,20 @@ const routes = [
         path: '/prevreservations',
         name: 'prevreservations',
         component: PrevReservationsPage
+    }
+        path: '/listingTravels',
+        name: 'listingTravels',
+        component: ListTravels
+    },
+    {
+        path: '/listingTravelsReturn',
+        name: 'listingTravelsReturn',
+        component: ListTravelsReturn
+    },
+    {
+        path: '/travelsDetails',
+        name: 'TravelDetails',
+        component: TravelDetails,
     }
 ]
 
