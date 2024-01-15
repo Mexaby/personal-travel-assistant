@@ -32,7 +32,7 @@
 </template>
 
 <script>
-import AppHeader from './page-components/AppHeader.vue';
+import AppHeader from '../page-components/AppHeader.vue';
 export default {
   components: {
     AppHeader,
