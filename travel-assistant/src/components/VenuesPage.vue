@@ -59,6 +59,7 @@ function search() {
   <div>
     <AppHeader />
     <button @click="goTo('/')">Back to Home</button>
+    <div class="titlevenues">Select your venue!</div>
     <br /><br />
     <div class="search-container">
       <div class="inputs">
@@ -256,5 +257,12 @@ button {
   margin-right: 50px;
 }
 
+.titlevenues{
+  text-align: center;
+  font-size: 30px;
+  color: darkblue;
+  font-weight: bold;
+  margin-top: 10px;
+}
 
 </style>

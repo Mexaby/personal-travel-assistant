@@ -9,8 +9,8 @@ const venue = JSON.parse(localStorage.getItem("venue"));
 
 const initialList = createVenues(venue.location, venue.activity);
 
-const sortType = ref("default"); //
-const sortOrder = ref("asc"); // Can be 'asc' o 'desc'
+const sortType = ref("default"); 
+const sortOrder = ref("asc"); 
 const defaultSort = ref("asc");
 
 const sortList = () => {
@@ -75,13 +75,25 @@ function confirmationButton() {
 <template>
   <div class="venues-page">
     <AppHeader />
+    
     <div v-if="sortedList.length === 0">
       <p>
         Sorry, no venues avaliable for the matching filters. Please try again!
       </p>
+            <div class="allbuttons">
+        <div class="homeorderbuttons">
+          <button @click="goTo('/venues')">Back to Filters</button>
+          <div class="order-buttons">
+            <button @click="updateSort('price')">Order by Price</button>
+            <button @click="updateSort('rating')">Order by Rating</button>
+            <button @click="toggleSortOrder">Toggle Order</button>
+          </div>
+        </div>
+        <button class="filtersbutton" @click="goTo('/')">Back to Home</button>
+      </div>
     </div>
     <div v-else>
-      <div class="allbuttons">
+            <div class="allbuttons">
         <div class="homeorderbuttons">
           <button @click="goTo('/venues')">Back to Filters</button>
           <div class="order-buttons">
