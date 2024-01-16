@@ -1,7 +1,8 @@
 <script setup>
-import { ref } from "vue";
-import { useRouter } from "vue-router";
+import {ref} from "vue";
+import {useRouter} from "vue-router";
 import AppHeader from './page-components/AppHeader.vue';
+
 const router = useRouter();
 const goTo = (route) => {
   router.push(route);
@@ -18,9 +19,10 @@ let input = ref("");
 let showDestinations = ref(true);
 
 const destinations = ["Cluj-Napoca", "Alicante", "Bucharest", "Budapest", "Istanbul", "London", "Madrid", "Paris", "Rome", "Vienna"];
+
 function filteredList() {
   return destinations.filter((destination) =>
-    destination.toLowerCase().includes(input.value.toLowerCase())
+      destination.toLowerCase().includes(input.value.toLowerCase())
   );
 }
 
@@ -28,6 +30,7 @@ function handleResultClick(destination) {
   input.value = destination;
   showDestinations.value = false;
 }
+
 function search() {
   if (input.value === "") {
     alert("Please enter a destination!");
@@ -57,23 +60,38 @@ function search() {
 
 <template>
   <div>
-    <AppHeader />
-    <div>Accommodations Page</div>
-    <button @click="goTo('/')">Back to Home</button>
+    <AppHeader/>
+    <button @click="goTo('/')" class="homeButton">Back to Home</button>
+    <div class="titleAccommodations">Find the accommodation best suited for you!</div>
     <br><br>
     <div class="search-container">
       <div class="inputs">
         <div class="input-group">
-          <input type="text" class="location" v-model="input" placeholder="Search destinations..." />
-          <input v-model="accommodation.checkIn" type="date" class="check-in" placeholder="Check-in">
-          <input v-model="accommodation.checkOut" type="date" class="check-out" placeholder="Check-out">
-          <input v-model="accommodation.guests" type="number" class="guests" placeholder="Guests">
-          <button @click="search" class="search-button">Search</button>
+          <div class="input-container">
+            <span>Select your destination</span>
+            <input id="location" type="text" class="location" v-model="input" placeholder="Select your destination..." />
+          </div>
+          <div class="input-container">
+            <span>Check-in</span>
+            <input id="checkIn" v-model="accommodation.checkIn" type="date" class="check-in" />
+          </div>
+          <div class="input-container">
+            <span>Check-out</span>
+            <input id="checkOut" v-model="accommodation.checkOut" type="date" class="check-out" />
+          </div>
+          <div class="input-container">
+            <span>Guests</span>
+            <input id="guests" v-model="accommodation.guests" type="number" class="guests" />
+
+          </div>
+          <div class="input-container">
+            <button @click="search" class="search-button">Search</button>
+          </div>
         </div>
       </div>
       <div v-if="showDestinations && input !== ''" class="destinations-container">
         <div class="item destinations" v-for="destination in filteredList()" :key="destination"
-          @click="handleResultClick(destination)">
+             @click="handleResultClick(destination)">
           <p>{{ destination }}</p>
         </div>
         <div class="item error" v-if="input && !filteredList().length">
@@ -84,9 +102,34 @@ function search() {
   </div>
 </template>
 
-<style>
+<style scoped>
 @import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap");
 
+.input-container {
+  width: 250px;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+}
+
+.homeButton {
+  margin-top: 20px;
+  padding: 10px;
+  background-color: #3498db;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.titleAccommodations {
+  text-align: center;
+  font-size: 30px;
+  color: darkblue;
+  font-weight: bold;
+  margin-top: 10px;
+
+}
 .destinations-container {
   width: 250px;
   margin-left: 19.5%;
@@ -120,13 +163,9 @@ body {
   align-items: center;
 }
 
-.input-group input {
-  margin: 5px;
-}
-
 input {
   box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
-    rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+  rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
 }
 
 .item {
@@ -136,7 +175,7 @@ input {
   color: white;
   border-radius: 5px;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px,
-    rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
+  rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
 }
 
 .destinations {
@@ -148,10 +187,8 @@ input {
 
 .error {
   width: 250px;
-  /* Set the same width as the .item class */
   background-color: tomato;
   margin: 0 auto 10px auto;
-  /* Maintain the same margin as .item */
   padding: 10px 20px;
   color: white;
   border-radius: 5px;
@@ -161,48 +198,44 @@ input {
 .location {
   background: white url("assets/search-icon.svg") no-repeat 0 center;
   background-size: 15px 15px;
-  width: 250px;
+  width: 220px;
   height: 30px;
   border-radius: 5px;
   border: 1px solid #ccc;
   padding: 5px 30px 5px 20px;
-  margin: 5px;
 }
 
 .check-in {
-  width: 200px;
+  width: 220px;
   height: 30px;
   border-radius: 5px;
   border: 1px solid #ccc;
   padding: 5px;
-  margin: 5px;
 }
 
 .check-out {
-  width: 200px;
+  width: 220px;
   height: 30px;
   border-radius: 5px;
   border: 1px solid #ccc;
   padding: 5px;
-  margin: 5px;
 }
 
 .guests {
-  width: 100px;
+  width: 220px;
   height: 30px;
   border-radius: 5px;
   border: 1px solid #ccc;
   padding: 5px;
-  margin: 5px;
 }
 
 .search-button {
-  width: 100px;
+  width: 150px;
   height: 30px;
   border-radius: 5px;
   border: 1px solid #ccc;
   padding: 5px;
-  margin: 5px;
+  margin-top:19.2px;
 }
 
 .location:focus,
@@ -213,7 +246,4 @@ input {
   outline: none;
 }
 
-.check-out {
-  margin-left: 5px;
-}
 </style>

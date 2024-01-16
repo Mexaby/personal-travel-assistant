@@ -4,7 +4,7 @@
     <div class="title" @click="goTo('/')">JourneyGenius</div>
     <div class="nav-buttons">
       <button class="plan-trip-button" @click="planTrip">Plan a Trip</button>
-      <button class="flights-button" @click="goTo('/flights')">Flights</button>
+      <button class="flights-button" @click="goTo('/flights')">Transportation</button>
       <button class="accomodations-button" @click="goTo('/accommodations')">Accommodation</button>
       <button class="venues-button" @click="goTo('/venues')">Venues</button>
     </div>
