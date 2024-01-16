@@ -1,5 +1,6 @@
 <template>
   <div>
+
     <AppHeader />
     
     <div v-for="(trip, index) in trips" :key="index">
@@ -31,14 +32,15 @@
           <img src=".././assets/Hotel-Room.webp" alt="Accommodation Image" />
           <p>You have decided to book a hotel room.</p>
         </div>
+
       </div>
     </div>
   </div>
 </template>
 
 <script>
-import AppHeader from '.././page-components/AppHeader.vue';
 
+import AppHeader from '.././page-components/AppHeader.vue';
 export default {
   components: {
     AppHeader,

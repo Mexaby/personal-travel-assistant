@@ -42,7 +42,7 @@ function search() {
   } else {
     const today = new Date();
     const date = new Date(venue.date);
-  
+
     if (date < today ) {
       alert("Please select dates in the future!");
     } else {
@@ -58,22 +58,22 @@ function search() {
 <template>
   <div>
     <AppHeader />
-    <button @click="goTo('/')">Back to Home</button>
+    <button @click="goTo('/')" class="homeButton">Back to Home</button>
     <div class="titlevenues">Select your venue!</div>
     <br /><br />
     <div class="search-container">
       <div class="inputs">
         <div class="input-group">
           <div class="input-container">
-            <label for="location">Select your location:</label>
-            <input v-model="input" type="text" id="location" class="location" placeholder="   Select your location..."/>
+            <span>Select your location</span>
+            <input v-model="input" type="text" class="location" placeholder="   Select your location..."/>
           </div>
           <div class="input-container">
-            <label for="date">Date:</label>
-            <input v-model="venue.date" type="date" id="date" class="date" />
+            <span>Date</span>
+            <input v-model="venue.date" type="date" class="date" />
           </div>
           <div class="input-container">
-            <label for="activities">Choose a venue:</label> 
+            <span>Choose a venue</span>
             <select v-model="venue.activity" name="activities" id="activities">
               <option value="" disabled selected>Select an Activity</option>
               <option value="Restaurant">Restaurants</option>
@@ -82,8 +82,8 @@ function search() {
             </select>
           </div>
           <div class="input-container-attendees">
-            <label for="attendees">Attendees:</label>
-            <input v-model="venue.attendees" type="number" id="attendees" class="attendees" placeholder="Attendees" />
+            <span>Attendees</span>
+            <input v-model="venue.attendees" type="number" class="attendees" placeholder="Attendees" />
           </div>
           <button @click="search" class="search-button">Search</button>
         </div>
@@ -138,9 +138,6 @@ body {
   align-items: center;
 }
 
-.input-group input {
-  margin: 5px;
-}
 
 input {
   box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
@@ -180,8 +177,6 @@ input {
   height: 30px;
   border-radius: 5px;
   border: 1px solid #ccc;
-  padding: 20px;
-  margin: 5px;
 }
 
 .date {
@@ -189,8 +184,6 @@ input {
   height: 30px;
   border-radius: 5px;
   border: 1px solid #ccc;
-  padding: 20px;
-  margin: 5px;
 }
 
 .attendees {
@@ -198,13 +191,11 @@ input {
   height: 30px;
   border-radius: 5px;
   border: 1px solid #ccc;
-  padding: 20px;
-  margin: 5px;
 }
 
 .search-button {
   width: 120px;
-  height: 50px;
+  height: 30px;
   border-radius: 5px;
   border: 1px solid #ccc;
   padding: 5px;
@@ -225,14 +216,14 @@ label {
 
 #activities{
   width: 250px;
-  padding: 10px;
+  height: 30px;
   border-radius: 5px;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px,
     rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
   font-size: medium;
 }
 
-button {
+.homeButton {
   margin-top: 20px;
   padding: 10px;
   background-color: #3498db;
@@ -243,14 +234,14 @@ button {
 }
 
 .input-container {
-  width: 250px; 
+  width: 250px;
   display: flex;
   flex-direction: column;
   margin-bottom: 10px;
   margin-right: 50px;
 }
 .input-container-attendees {
-  width: 100px; 
+  width: 100px;
   display: flex;
   flex-direction: column;
   margin-bottom: 10px;

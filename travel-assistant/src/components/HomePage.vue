@@ -157,6 +157,10 @@ export default {
   position: relative;
   width: 100%;
 }
+*
+{
+  font-family: "Montserrat", sans-serif;
+}
 
 .background-image {
   border-radius: 5px;
