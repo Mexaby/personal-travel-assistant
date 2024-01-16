@@ -13,6 +13,8 @@ import ListTravels from "@/components/ListTravels.vue";
 import ListTravelsReturn from "@/components/ListTravelsReturn.vue";
 import TravelDetails from "@/components/TravelDetails.vue";
 import VenueList from "@/components/VenueList.vue";
+import SummaryPage from "@/components/SummaryPage.vue";
+
 const routes = [
     {
         path: '/',
@@ -84,6 +86,11 @@ const routes = [
         path: '/travelsDetails',
         name: 'TravelDetails',
         component: TravelDetails,
+    },
+    {
+        path: '/summary',
+        name: 'SummaryPage',
+        component: SummaryPage,
     }
 ]
 
