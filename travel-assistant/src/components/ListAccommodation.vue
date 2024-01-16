@@ -18,11 +18,17 @@ const router = useRouter();
 const goTo = (route) => {
   router.push(route);
 };
+const goToBusPage = () => {
+  router.push('/busPage'); // Assuming 'busPage' is the route for the page with bus information
+};
 </script>
 
 <template>
   <div class="accommodations-page">
     <AppHeader/>
+    <button class="bus-button" @click="goToBusPage">
+      <img src="@/classes/photos/bus-stop-symbol-icon-28.png" width="20px" alt="Bus Icon" class="bus-icon">
+    </button>
     <div class="accommodations-list">
       <div v-for="item in list" :key="item.id" class="accommodation-item">
         <img :src="require(`@/classes/photos/${item.image}`)" alt="photo" class="accommodation-image">
