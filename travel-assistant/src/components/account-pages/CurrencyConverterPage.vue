@@ -1,4 +1,5 @@
 <template>
+  <button @click="goBack()" class="back-button">Go Back</button>
   <div class="converter-container">
     <h2>Currency Converter</h2>
 
@@ -32,6 +33,7 @@
 </template>
 
 <script>
+
 export default {
   data() {
     return {
@@ -39,7 +41,6 @@ export default {
         USD: 'US Dollar',
         EUR: 'Euro',
         GBP: 'British Pound',
-        // Add more currencies as needed
       },
       fromCurrency: 'USD',
       toCurrency: 'USD',
@@ -48,7 +49,6 @@ export default {
         USD: 1.0,
         EUR: 0.85,
         GBP: 0.73,
-        // Add more conversion rates as needed
       },
       result: '',
     };
@@ -71,6 +71,13 @@ export default {
       this.result = `${amount} ${fromCurrency} is equal to ${result.toFixed(2)} ${toCurrency}`;
     },
   },
+};
+</script>
+<script setup>
+import router from "@/router";
+
+const goBack = () => {
+  router.back();
 };
 </script>
 

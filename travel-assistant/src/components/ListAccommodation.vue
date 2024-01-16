@@ -19,7 +19,7 @@ const goTo = (route) => {
   router.push(route);
 };
 const goToBusPage = () => {
-  router.push('/busPage'); // Assuming 'busPage' is the route for the page with bus information
+  router.push('/busPage');
 };
 </script>
 
