@@ -33,6 +33,7 @@
     padding: 1px 10px 10px 10px;
     font-size: 0.8em;
     border-radius: 5px;
+    bottom: 8px;
 }
 
 hr {

@@ -29,6 +29,8 @@ import { useRouter } from "vue-router";
 import { createAccommodations } from "@/classes/accommodations";
 import AppHeader from './page-components/AppHeader.vue';
 
+
+
 const selectedAccommodation = ref(null);
 const router = useRouter();
 

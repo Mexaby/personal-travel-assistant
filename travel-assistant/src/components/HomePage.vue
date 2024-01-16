@@ -63,9 +63,9 @@
 </template>
 
 <script>
-import AppHeader from './page-components/AppHeader.vue';
 import TravelOffer from './page-components/TravelOffer.vue';
 import ImageCard from './page-components/ImageCard.vue';
+import AppHeader from './page-components/AppHeader.vue';
 import AppFooter from './page-components/AppFooter.vue';
 
 export default {
@@ -84,10 +84,10 @@ export default {
   },
 
   components: {
-    AppHeader,
     TravelOffer,
     ImageCard,
-    AppFooter
+    AppHeader,
+    AppFooter,
 },
 
   methods: {
