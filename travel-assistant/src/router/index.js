@@ -11,6 +11,7 @@ import ListTravels from "@/components/ListTravels.vue";
 import ListTravelsReturn from "@/components/ListTravelsReturn.vue";
 import TravelDetails from "@/components/TravelDetails.vue";
 import VenueList from "@/components/VenueList.vue";
+import LocalTransportInfo from "@/components/LocalTransportInfo.vue";
 const routes = [
     {
         path: '/',
@@ -42,6 +43,11 @@ const routes = [
         path: '/venues',
         name: 'venues',
         component: VenuesPage
+    },
+    {
+        path:'/busPage',
+        name: 'busPage',
+        component: LocalTransportInfo
     },
     {
         path: '/listingvenues',
