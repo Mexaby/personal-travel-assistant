@@ -36,10 +36,34 @@
           </div>
         </button>
       </div>
+      <div class="custom-card-container">
+        <button class="custom-card assistant" @click="goTo('/currency')">
+          <div class="card-content">
+            <img src="../../classes/photos/money.png" alt="Money">
+            <span>Convert</span>
+          </div>
+        </button>
+      </div>
+      <div class="custom-card-container">
+        <button class="custom-card assistant" @click="goTo('/packing')">
+          <div class="card-content">
+            <img src="../../classes/photos/images.png" alt="Packing">
+            <span>Packing list</span>
+          </div>
+        </button>
+      </div>
     </div>
   </div>
 </template>
+<script setup>
+import {useRouter} from "vue-router";
 
+const router = useRouter();
+
+const goTo = (route) => {
+  router.push(route);
+};
+</script>
 
 <script>
 import AppHeader from '.././page-components/AppHeader.vue';
@@ -51,11 +75,6 @@ export default {
     return {
       showOptions: false,
     };
-  },
-  methods: {
-    goTo(route) {
-      this.$router.push(route);
-    },
   },
 };
 </script>

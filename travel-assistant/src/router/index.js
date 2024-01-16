@@ -1,4 +1,4 @@
-import { createRouter, createWebHashHistory } from 'vue-router'
+import {createRouter, createWebHashHistory} from 'vue-router'
 import HomePage from '../components/HomePage.vue'
 import FlightsPage from '../components/FlightsPage.vue'
 import AccommodationsPage from "@/components/AccommodationsPage.vue";
@@ -14,6 +14,9 @@ import ListTravelsReturn from "@/components/ListTravelsReturn.vue";
 import TravelDetails from "@/components/TravelDetails.vue";
 import VenueList from "@/components/VenueList.vue";
 import LocalTransportInfo from "@/components/LocalTransportInfo.vue";
+import CurrencyConverterPage from "@/components/account-pages/CurrencyConverterPage.vue";
+import PackingPage from "@/components/account-pages/PackingPage.vue";
+
 const routes = [
     {
         path: '/',
@@ -47,7 +50,17 @@ const routes = [
         component: VenuesPage
     },
     {
-        path:'/busPage',
+        path: '/currency',
+        name: 'currency',
+        component: CurrencyConverterPage
+    },
+    {
+        path: '/packing',
+        name: 'packing',
+        component: PackingPage
+    },
+    {
+        path: '/busPage',
         name: 'busPage',
         component: LocalTransportInfo
     },
