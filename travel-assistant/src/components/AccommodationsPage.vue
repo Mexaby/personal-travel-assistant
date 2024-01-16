@@ -131,8 +131,8 @@ function search() {
 
 }
 .destinations-container {
-  width: 250px;
-  margin-left: 19.5%;
+  width: 170px;
+  margin-left: 9.5%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -169,7 +169,7 @@ input {
 }
 
 .item {
-  width: 250px;
+  width: 220px;
   margin: 0 auto 10px auto;
   padding: 10px 20px;
   color: white;

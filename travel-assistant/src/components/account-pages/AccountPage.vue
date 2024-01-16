@@ -5,7 +5,7 @@
     <!-- Four card buttons with images and updated labels -->
     <div class="button-container">
       <div class="custom-card-container">
-        <button class="custom-card reserved-trips" @click="goTo('/reserved-trips')">
+        <button class="custom-card reserved-trips">
           <div class="card-content">
             <img src=".././assets/Planned-Trip.png" alt="Reserved Trips">
             <span>Reserved Trips</span>
@@ -21,7 +21,7 @@
         </button>
       </div>
       <div class="custom-card-container">
-        <button class="custom-card invoices" @click="goTo('/invoices')">
+        <button class="custom-card invoices">
           <div class="card-content">
             <img src=".././assets/Invoices.png" alt="Invoices">
             <span>Invoices</span>

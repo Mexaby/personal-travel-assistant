@@ -37,7 +37,24 @@
         <div class="genericContainer">
           <button @click="search" class="Searchbutton">Search</button>
         </div>
-
+        <div v-if="showDestinations1 && input1 !== ''" class="destinations-container1">
+          <div class="item22 destinations" v-for="destination1 in filteredList1()" :key="destination1"
+               @click="handleResultClick1(destination1)">
+            <p>{{ destination1 }}</p>
+          </div>
+          <div class="items errors" v-if="input1 && !filteredList1().length">
+            <p>No results found!</p>
+          </div>
+        </div>
+        <div v-if="showDestinations2 && input2 !== ''" class="destinations-container2">
+          <div class="item22 destinations" v-for="destination2 in filteredList2()" :key="destination2"
+               @click="handleResultClick2(destination2)">
+            <p>{{ destination2 }}</p>
+          </div>
+          <div class="items errors" v-if="input2 && !filteredList2().length">
+            <p>No results found!</p>
+          </div>
+        </div>
       </div>
       <div class=InputButtons>
         <div>
@@ -45,24 +62,6 @@
           <input type="checkbox">
         </div>
 
-      </div>
-      <div v-if="showDestinations1 && input1 !== ''" class="destinations-container1">
-        <div class="item22 destinations" v-for="destination1 in filteredList1()" :key="destination1"
-             @click="handleResultClick1(destination1)">
-          <p>{{ destination1 }}</p>
-        </div>
-        <div class="items errors" v-if="input1 && !filteredList1().length">
-          <p>No results found!</p>
-        </div>
-      </div>
-      <div v-if="showDestinations2 && input2 !== ''" class="destinations-container2">
-        <div class="item22 destinations" v-for="destination2 in filteredList2()" :key="destination2"
-             @click="handleResultClick2(destination2)">
-          <p>{{ destination2 }}</p>
-        </div>
-        <div class="items errors" v-if="input2 && !filteredList2().length">
-          <p>No results found!</p>
-        </div>
       </div>
     </div>
   </div>
@@ -325,19 +324,19 @@ label {
 }
 
 .destinations-container1 {
-  width: 200px;
-  margin-left: 260px;
+  width: 150px;
+  margin-top:190px;
+  margin-left: 15.5%;
   display: block;
   flex-direction: column;
   align-items: center;
   position: absolute;
-  top: 40%;
-  z-index: 2;
 }
 
 .destinations-container2 {
-  width: 200px;
-  margin-left: 500px;
+  width: 150px;
+  margin-top:20px;
+  margin-left: 30%;
   display: block;
   flex-direction: column;
   align-items: center;
@@ -352,7 +351,7 @@ label {
   cursor: pointer;
   margin: 0;
   margin-bottom: 10px;
-  width: 200px;
+  width: 150px;
 }
 
 

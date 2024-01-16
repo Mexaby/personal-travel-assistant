@@ -2,7 +2,7 @@
   <div>
 
     <AppHeader />
-    
+    <button @click="goBack()" class="homeButton">Go Back</button>
     <div v-for="(trip, index) in trips" :key="index">
       <div class="group-header" @click="toggleDetails(index)">
         <h2>{{ trip.date }}</h2>
@@ -38,45 +38,41 @@
   </div>
 </template>
 
-<script>
-
+<script setup>
 import AppHeader from '.././page-components/AppHeader.vue';
-export default {
-  components: {
-    AppHeader,
-  },
-  data() {
-    return {
-      trips: [
-        { date: '10.12.2021', showDetails: false, activeSubheader: '' },
-        { date: '10.12.2020', showDetails: false, activeSubheader: '' },
-        // Add more trips as needed
-      ],
-    };
-  },
-  methods: {
-    toggleDetails(index) {
-      this.trips[index].showDetails = !this.trips[index].showDetails;
-    },
-    toggleSubheader(index, subheader) {
-      this.trips[index].activeSubheader = this.trips[index].activeSubheader === subheader ? '' : subheader;
-    },
-    goTo(route) {
-      this.$router.push(route);
-    },
-  },
+import { ref } from 'vue';
+import { useRouter } from 'vue-router';
+
+const trips = ref([
+  { date: '10.12.2021', showDetails: false, activeSubheader: '' },
+  { date: '10.12.2020', showDetails: false, activeSubheader: '' },
+  // Add more trips as needed
+]);
+
+
+const toggleDetails = (index) => {
+  trips.value[index].showDetails = !trips.value[index].showDetails;
+};
+
+const toggleSubheader = (index, subheader) => {
+  trips.value[index].activeSubheader = trips.value[index].activeSubheader === subheader ? '' : subheader;
+};
+
+const router = useRouter();
+const goBack = () => {
+  router.back();
 };
 </script>
 
 <style scoped>
-.header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+.homeButton {
+  margin-top: 20px;
   padding: 10px;
-  max-width: 80%; /* Set the max-width to 80% for the header */
-  margin: 0 auto;
-  border: 1px solid #3498db;
+  background-color: #3498db;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
 }
 
 .group-header {
