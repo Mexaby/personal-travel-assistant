@@ -13,7 +13,7 @@
         </button>
       </div>
       <div class="custom-card-container">
-        <button class="custom-card previous-trips" @click="goTo('/previous-trips')">
+        <button class="custom-card previous-trips" @click="goTo('/prevreservations')">
           <div class="card-content">
             <img src=".././assets/Previous-Trip.png" alt="Previous Trips">
             <span>Previous Trips</span>

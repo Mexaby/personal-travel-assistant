@@ -69,7 +69,8 @@ const routes = [
         path: '/prevreservations',
         name: 'prevreservations',
         component: PrevReservationsPage
-    }
+    },
+    {
         path: '/listingTravels',
         name: 'listingTravels',
         component: ListTravels
