@@ -1,8 +1,8 @@
 <template>
   <div>
     <AppHeader />
+    <button @click="goBack()" class="homeButton">Go Back</button>
     <div class="chat-window">
-
       <div class="chat-bubble my-message">
         When should I go to the airport to get on time?
       </div>
@@ -41,49 +41,26 @@
   </div>
 </template>
 
-<script>
+<script setup>
 import AppHeader from '.././page-components/AppHeader.vue';
-export default {
-  components: {
-    AppHeader,
-  },
-  data() {
-    return {
-      showOptions: false,
-    };
-  },
-  methods: {
-    goTo(route) {
-      this.$router.push(route);
-    },
-  },
+import { useRouter } from 'vue-router';
+
+const router = useRouter();
+
+const goBack = () => {
+  router.back();
 };
 </script>
 
 <style scoped>
-/* Base styling for larger screens */
-.header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+.homeButton {
+  margin-top: 20px;
   padding: 10px;
-  max-width: 600px;
-  margin: 0 auto;
-}
-
-.account-info {
-  position: relative;
-}
-
-.options-list {
-  position: absolute;
-  top: 100%;
-  left: 0;
-  background-color: #fff;
-  border: 1px solid #ccc;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  padding: 10px;
-  display: none;
+  background-color: #3498db;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
 }
 
 .account-info:hover .options-list {
