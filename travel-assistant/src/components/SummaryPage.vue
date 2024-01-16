@@ -9,10 +9,10 @@
                 <p>{{ summary.price }}</p>
             </div>
             <hr>
-            <p>Total: {{ total }}</p>
+            <p class="total">Total: {{ total }}</p>
             <div class="action-buttons">
-                <button @click="goHome" class="btn">Go Home</button>
-                <button @click="confirmTrip" class="btn confirm-btn">Confirm Trip</button>
+                <button @click="goHome" class="btn">Return to Home</button>
+                <button @click="confirmTrip" class="btn confirm-btn">Confirm Your Trip</button>
             </div>
         </div>
     </div>
@@ -70,6 +70,11 @@
         height: 100px;
     }
 
+    .total {
+        font-size: 20px;
+        font-weight: bold;
+    }
+
     .action-buttons {
         display: flex;
         justify-content: space-between;
@@ -85,5 +90,6 @@
     .confirm-btn {
         background-color: #4CAF50;
         color: white;
+        border-radius: 5px;
     }
 </style>
