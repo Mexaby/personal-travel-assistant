@@ -57,36 +57,16 @@
       <image-card imageUrl="travelMarrakech.jpg" imageTitle="Marrakech" />
       <image-card imageUrl="travelParis.jpg" imageTitle="Paris" />
       <image-card imageUrl="travelRome.jpg" imageTitle="Rome" />
-    </div>
-    <div class="footer">
-      <div class="footer-content">
-        <div class="footer-section about">
-          <h1 class="logo-text"><span>Journey</span>Genius</h1>
-          <hr />
-        </div>
-      </div>
-      <div class="footer-bottom">
-        &copy; 2024 TeamSix, All rights reserved.
-        <div class="social-media">
-          <a href="https://www.facebook.com/" target="_blank">
-            <img src="./assets/facebook.png" alt="Facebook" />
-          </a>
-          <a href="https://twitter.com/" target="_blank">
-            <img src="./assets/twitter.png" alt="Twitter" />
-          </a>
-          <a href="https://www.instagram.com/" target="_blank">
-            <img src="./assets/instagram.png" alt="Instagram" />
-          </a>
-        </div>
-      </div>
-    </div>
+    </div>    
+      <AppFooter />
   </div>
 </template>
 
 <script>
-import AppHeader from './page-components/AppHeader.vue';
 import TravelOffer from './page-components/TravelOffer.vue';
 import ImageCard from './page-components/ImageCard.vue';
+import AppHeader from './page-components/AppHeader.vue';
+import AppFooter from './page-components/AppFooter.vue';
 
 export default {
   data() {
@@ -104,10 +84,11 @@ export default {
   },
 
   components: {
-    AppHeader,
     TravelOffer,
     ImageCard,
-  },
+    AppHeader,
+    AppFooter,
+},
 
   methods: {
     startInterval() {
@@ -305,39 +286,4 @@ button {
   margin-bottom: 50px;
 }
 
-.footer {
-  background-color: #3498db;
-  color: #fff;
-  padding: 20px;
-  font-size: 0.8em;
-  width: 100%;
-  border-radius: 5px;
-}
-
-.logo-text {
-  font-size: 2em;
-  margin-bottom: 20px;
-  text-align: center;
-}
-
-hr {
-  color: #fff;
-  opacity: 0.5;
-  margin-bottom: 20px;
-}
-
-.footer-bottom {
-  display: flex;
-  align-items: center;
-}
-
-.footer-bottom img {
-  width: 30px;
-  margin-left: 10px;
-  margin-right: 10px;
-}
-
-.social-media {
-  margin-left: auto;
-}
 </style>

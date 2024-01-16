@@ -4,7 +4,7 @@
         <img :src="require('../assets/' + imageUrl || 'paris.jpg' + '')" class="offer-image" />
         <p class="offer-description">{{ description }}</p>
         <p class="offer-price">{{ price }}</p>
-        <button class="reserve-button">Reserve Now!</button>
+        <button class="reserve-button" @click="goSummary">Reserve Now!</button>
     </div>
 </template>
   
@@ -27,6 +27,11 @@ export default {
         price: {
             type: Number,
             required: true
+        }
+    },
+    methods: {
+        goSummary() {
+            this.$router.push('/summary');
         }
     }
 }

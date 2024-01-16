@@ -9,8 +9,8 @@ const venue = JSON.parse(localStorage.getItem("venue"));
 
 const initialList = createVenues(venue.location, venue.activity);
 
-const sortType = ref("default"); 
-const sortOrder = ref("asc"); 
+const sortType = ref("default");
+const sortOrder = ref("asc");
 const defaultSort = ref("asc");
 
 const sortList = () => {
@@ -65,10 +65,6 @@ function closeDetails() {
   selectedVenue.value = null;
   showModal.value = false;
 }
-
-function confirmationButton() {
-  //waiting for trip summary
-}
 </script>
 
 
@@ -82,7 +78,7 @@ function confirmationButton() {
       <p>
         Sorry, no venues avaliable for the matching filters. Please try again!
       </p>
-            <div class="allbuttons">
+      <div class="allbuttons">
         <div class="homeorderbuttons">
           <button @click="goTo('/venues')">Back to Filters</button>
           <div class="order-buttons">
@@ -95,7 +91,7 @@ function confirmationButton() {
       </div>
     </div>
     <div v-else>
-            <div class="allbuttons">
+      <div class="allbuttons">
         <div class="homeorderbuttons">
           <button @click="goTo('/venues')">Back to Filters</button>
           <div class="order-buttons">
@@ -108,11 +104,7 @@ function confirmationButton() {
       </div>
       <div class="venues-list">
         <div v-for="item in sortedList" :key="item.id" class="venue-item">
-          <img
-            :src="require(`@/classes/venues/${venue.activity}/${item.image}`)"
-            alt="photo"
-            class="venue-image"
-          />
+          <img :src="require(`@/classes/venues/${venue.activity}/${item.image}`)" alt="photo" class="venue-image" />
           <div class="venue-details">
             <div class="venue-name">{{ item.name }}</div>
             <div class="venue-location">{{ item.location }}</div>
@@ -128,13 +120,8 @@ function confirmationButton() {
         <div v-if="showModal" class="modal-overlay">
           <div class="modal">
             <div v-if="selectedVenue">
-              <img
-                :src="
-                  require(`@/classes/venues/${venue.activity}/${selectedVenue.image}`)
-                "
-                alt="Large photo"
-                class="venue-image2"
-              />
+              <img :src="require(`@/classes/venues/${venue.activity}/${selectedVenue.image}`)
+                " alt="Large photo" class="venue-image2" />
               <div class="venue-description">
                 {{ selectedVenue.description }}
               </div>
@@ -144,7 +131,7 @@ function confirmationButton() {
               </div>
             </div>
             <div class="details-buttons">
-              <button @click="confirmationButton" class="confirm-button">
+              <button @click="goTo('/summary')" class="confirm-button">
                 Confirm your reservation!
               </button>
               <button @click="closeDetails" class="close-button">Close</button>
@@ -157,7 +144,6 @@ function confirmationButton() {
 </template>
 
 <style scoped>
-
 p {
   padding: 10px;
   margin: 0;
@@ -185,9 +171,9 @@ p {
   background-color: white;
 }
 
-.venue-item:hover{
-     transform: scale(1.05); 
-    transition: transform 0.3s ease; 
+.venue-item:hover {
+  transform: scale(1.05);
+  transition: transform 0.3s ease;
 }
 
 .venue-image {
@@ -300,10 +286,11 @@ button {
 
 .allbuttons {
   display: flex;
-  justify-content: space-between; 
-  align-items: center; 
+  justify-content: space-between;
+  align-items: center;
   margin-bottom: 20px;
 }
+
 .homeorderbuttons {
   display: flex;
   align-items: center;

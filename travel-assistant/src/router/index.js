@@ -13,6 +13,7 @@ import ListTravels from "@/components/ListTravels.vue";
 import ListTravelsReturn from "@/components/ListTravelsReturn.vue";
 import TravelDetails from "@/components/TravelDetails.vue";
 import VenueList from "@/components/VenueList.vue";
+import SummaryPage from "@/components/SummaryPage.vue";
 import LocalTransportInfo from "@/components/LocalTransportInfo.vue";
 import CurrencyConverterPage from "@/components/account-pages/CurrencyConverterPage.vue";
 import PackingPage from "@/components/account-pages/PackingPage.vue";
@@ -103,6 +104,11 @@ const routes = [
         path: '/travelsDetails',
         name: 'TravelDetails',
         component: TravelDetails,
+    },
+    {
+        path: '/summary',
+        name: 'SummaryPage',
+        component: SummaryPage,
     }
 ]
 
