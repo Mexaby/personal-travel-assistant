@@ -97,6 +97,8 @@ export default {
   display: flex;
   flex-direction: column;
   overflow: hidden; /* Add overflow property to hide any content that goes beyond the border */
+  justify-content: center;
+  text-align: center;
 }
 
 .custom-card img {
@@ -109,7 +111,8 @@ export default {
 .custom-card span {
   display: block;
   width: 100%;
-  padding: 10px;
+  padding-bottom: 10px;
+  padding-top: 10px;
   background-color: #145da0;
   color: white;
   text-align: center;

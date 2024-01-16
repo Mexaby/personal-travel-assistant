@@ -30,3 +30,11 @@
   opacity: 1;
 }
 </style>
+
+<style>
+*
+{
+  font-family: "Montserrat", sans-serif;
+}
+</style>
+
