@@ -47,7 +47,7 @@
       <div class="custom-card-container">
         <button class="custom-card assistant" @click="goTo('/packing')">
           <div class="card-content">
-            <img src="../../classes/photos/money.png" alt="Money">
+            <img src="../../classes/photos/images.png" alt="Packing">
             <span>Packing list</span>
           </div>
         </button>
