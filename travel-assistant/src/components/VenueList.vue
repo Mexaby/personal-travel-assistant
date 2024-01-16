@@ -71,7 +71,9 @@ function closeDetails() {
 <template>
   <div class="venues-page">
     <AppHeader />
-
+    <button class="bus-button" @click="goTo('/busPage')">
+      <img src="@/classes/photos/bus-stop-symbol-icon-28.png" width="20px" alt="Bus Icon" class="bus-icon">
+    </button>
     <div v-if="sortedList.length === 0">
       <p>
         Sorry, no venues avaliable for the matching filters. Please try again!
