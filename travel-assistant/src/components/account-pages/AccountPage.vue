@@ -36,6 +36,14 @@
           </div>
         </button>
       </div>
+      <div class="custom-card-container">
+        <button class="custom-card assistant" @click="goTo('/currency')">
+          <div class="card-content">
+            <img src="../../classes/photos/money.png" alt="Money">
+            <span>Convert</span>
+          </div>
+        </button>
+      </div>
     </div>
   </div>
 </template>

@@ -14,6 +14,7 @@ import ListTravelsReturn from "@/components/ListTravelsReturn.vue";
 import TravelDetails from "@/components/TravelDetails.vue";
 import VenueList from "@/components/VenueList.vue";
 import LocalTransportInfo from "@/components/LocalTransportInfo.vue";
+import CurrencyConverterPage from "@/components/account-pages/CurrencyConverterPage.vue";
 const routes = [
     {
         path: '/',
@@ -45,6 +46,11 @@ const routes = [
         path: '/venues',
         name: 'venues',
         component: VenuesPage
+    },
+    {
+      path: '/currency',
+      name : 'currency',
+      component: CurrencyConverterPage
     },
     {
         path:'/busPage',
