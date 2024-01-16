@@ -3,8 +3,10 @@ import HomePage from '../components/HomePage.vue'
 import FlightsPage from '../components/FlightsPage.vue'
 import AccommodationsPage from "@/components/AccommodationsPage.vue";
 import VenuesPage from "@/components/VenuesPage.vue";
-import AccountPage from '../components/AccountPage.vue'
-import AssistantPage from '../components/AssistantPage.vue'
+import AccountPage from '../components/account-pages/AccountPage.vue'
+import AssistantPage from '../components/account-pages/AssistantPage.vue'
+import ReservationsPage from '../components/account-pages/ReservationsPage.vue'
+import PrevReservationsPage from '../components/account-pages/PrevReservationsPage.vue'
 import ListAccommodation from "@/components/ListAccommodation.vue";
 import AccommodationDetails from "@/components/AccommodationDetails.vue";
 import ListTravels from "@/components/ListTravels.vue";
@@ -59,6 +61,15 @@ const routes = [
         component: AssistantPage
     },
     {
+        path: '/reservations',
+        name: 'reservations',
+        component: ReservationsPage
+    },
+    {
+        path: '/prevreservations',
+        name: 'prevreservations',
+        component: PrevReservationsPage
+    }
         path: '/listingTravels',
         name: 'listingTravels',
         component: ListTravels
@@ -72,8 +83,7 @@ const routes = [
         path: '/travelsDetails',
         name: 'TravelDetails',
         component: TravelDetails,
-    },
-    
+    }
 ]
 
 const router = createRouter({
