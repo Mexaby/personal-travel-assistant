@@ -1,85 +1,78 @@
 <template>
-  <button @click="goBack()" class="back-button">Go Back</button>
-  <div class="converter-container">
-    <h2>Currency Converter</h2>
+  <div>
+    <button @click="goBack()" class="back-button">Go Back</button>
+    <div class="converter-container">
+      <h2>Currency Converter</h2>
 
-    <div class="input-group">
-      <label for="fromCurrency">From:</label>
-      <select v-model="fromCurrency" id="fromCurrency">
-        <option v-for="(label, currency) in currencies" :key="currency" :value="currency">
-          {{ currency }} - {{ label }}
-        </option>
-      </select>
+      <div class="input-group">
+        <label for="fromCurrency">From:</label>
+        <select v-model="fromCurrency" id="fromCurrency">
+          <option v-for="(label, currency) in currencies" :key="currency" :value="currency">
+            {{ currency }} - {{ label }}
+          </option>
+        </select>
+      </div>
+
+      <div class="input-group">
+        <label for="toCurrency">To:</label>
+        <select v-model="toCurrency" id="toCurrency">
+          <option v-for="(label, currency) in currencies" :key="currency" :value="currency">
+            {{ currency }} - {{ label }}
+          </option>
+        </select>
+      </div>
+
+      <div class="input-group">
+        <label for="amount">Amount:</label>
+        <input v-model="amount" type="number" id="amount" placeholder="Enter amount">
+      </div>
+
+      <button @click="convertCurrency">Convert</button>
+
+      <div v-if="result" id="result">{{ result }}</div>
     </div>
-
-    <div class="input-group">
-      <label for="toCurrency">To:</label>
-      <select v-model="toCurrency" id="toCurrency">
-        <option v-for="(label, currency) in currencies" :key="currency" :value="currency">
-          {{ currency }} - {{ label }}
-        </option>
-      </select>
-    </div>
-
-    <div class="input-group">
-      <label for="amount">Amount:</label>
-      <input v-model="amount" type="number" id="amount" placeholder="Enter amount">
-    </div>
-
-    <button @click="convertCurrency">Convert</button>
-
-    <div v-if="result" id="result">{{ result }}</div>
   </div>
 </template>
-
-<script>
-
-export default {
-  data() {
-    return {
-      currencies: {
-        USD: 'US Dollar',
-        EUR: 'Euro',
-        GBP: 'British Pound',
-      },
-      fromCurrency: 'USD',
-      toCurrency: 'USD',
-      amount: 1,
-      conversionRates: {
-        USD: 1.0,
-        EUR: 0.85,
-        GBP: 0.73,
-      },
-      result: '',
-    };
-  },
-  methods: {
-    convertCurrency() {
-      const { fromCurrency, toCurrency, amount, conversionRates } = this;
-
-      if (isNaN(amount) || amount <= 0) {
-        this.result = 'Please enter a valid amount.';
-        return;
-      }
-
-      if (!(fromCurrency in conversionRates) || !(toCurrency in conversionRates)) {
-        this.result = 'Invalid currency selection.';
-        return;
-      }
-
-      const result = (amount / conversionRates[fromCurrency]) * conversionRates[toCurrency];
-      this.result = `${amount} ${fromCurrency} is equal to ${result.toFixed(2)} ${toCurrency}`;
-    },
-  },
-};
-</script>
 <script setup>
+import {ref} from 'vue';
 import router from "@/router";
+
+const currencies = ref({
+  USD: 'US Dollar',
+  EUR: 'Euro',
+  GBP: 'British Pound',
+});
+const fromCurrency = ref('USD');
+const toCurrency = ref('USD');
+const amount = ref(1);
+const conversionRates = ref({
+  USD: 1.0,
+  EUR: 0.85,
+  GBP: 0.73,
+});
+const result = ref('');
+
+const convertCurrency = () => {
+  if (isNaN(amount.value) || amount.value <= 0) {
+    result.value = 'Please enter a valid amount.';
+    return;
+  }
+
+  if (!(fromCurrency.value in conversionRates.value) || !(toCurrency.value in conversionRates.value)) {
+    result.value = 'Invalid currency selection.';
+    return;
+  }
+
+  const resultValue =
+      (amount.value / conversionRates.value[fromCurrency.value]) * conversionRates.value[toCurrency.value];
+  result.value = `${amount.value} ${fromCurrency.value} is equal to ${resultValue.toFixed(2)} ${toCurrency.value}`;
+};
 
 const goBack = () => {
   router.back();
 };
 </script>
+
 
 <style scoped>
 .converter-container {
