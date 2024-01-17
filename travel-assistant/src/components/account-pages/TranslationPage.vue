@@ -1,6 +1,7 @@
 <script setup>
 import {computed, ref} from "vue";
 import {useRouter} from "vue-router";
+import AppHeader from "@/components/page-components/AppHeader.vue";
 
 const language = ref('en');
 const translations = {
@@ -32,6 +33,7 @@ const currentTranslation = computed(() => translations[language.value]);
 <!-- TranslationComponent.vue -->
 
 <template>
+  <AppHeader></AppHeader>
   <button class="homeButton" @click="goBack">Go back</button>
   <div class="translation-container">
     <h1>{{ currentTranslation.greeting }}</h1>

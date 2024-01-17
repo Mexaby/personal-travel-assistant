@@ -56,7 +56,7 @@
         <button class="custom-card assistant" @click="goTo('/translate')">
           <div class="card-content">
             <img src="../../classes/photos/translate1230.jpg" alt="Translation">
-            <span>Translation Support</span>
+            <span>Translation</span>
           </div>
         </button>
       </div>
