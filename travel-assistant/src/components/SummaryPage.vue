@@ -11,7 +11,7 @@
             <hr>
             <p class="total">Total: {{ total }}</p>
             <div class="action-buttons">
-                <button @click="goHome" class="btn">Return to Home</button>
+                <button @click="goBack" class="btn">Go Back</button>
                 <button @click="confirmTrip" class="btn confirm-btn">Confirm Your Trip</button>
             </div>
         </div>
@@ -36,8 +36,8 @@ export default {
         };
     },
     methods: {
-        goHome() {
-            this.$router.push('/');
+        goBack() {
+            this.$router.back();
         },
         confirmTrip() {
             alert('Payment pending. Thanks for choosing JourneyGenius. You will be returned to the homepage.');
