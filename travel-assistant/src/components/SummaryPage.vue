@@ -36,7 +36,7 @@ export default {
         };
     },
     methods: {
-        goBack() {
+        goHome() {
             this.$router.back();
         },
         confirmTrip() {
@@ -114,6 +114,11 @@ export default {
 .btn {
     padding: 10px 20px;
     margin-top: 20px;
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
 }
 
 h2 {
