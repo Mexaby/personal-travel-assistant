@@ -52,6 +52,14 @@
           </div>
         </button>
       </div>
+      <div class="custom-card-container">
+        <button class="custom-card assistant" @click="goTo('/translate')">
+          <div class="card-content">
+            <img src="../../classes/photos/images.png" alt="Translation">
+            <span>Translation Support</span>
+          </div>
+        </button>
+      </div>
     </div>
   </div>
 </template>

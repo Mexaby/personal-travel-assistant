@@ -32,6 +32,7 @@
           <img src=".././assets/Hotel-Room.webp" alt="Accommodation Image" />
           <p>You have decided to book a hotel room.</p>
         </div>
+        <button class="redoButton">Redo the previous trip</button>
 
       </div>
     </div>
@@ -69,6 +70,15 @@ const goBack = () => {
   margin-top: 20px;
   padding: 10px;
   background-color: #3498db;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.redoButton {
+  margin-top: 20px;
+  padding: 10px;
+  background-color: green;
   color: #fff;
   border: none;
   border-radius: 5px;
