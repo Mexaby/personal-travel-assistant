@@ -312,9 +312,6 @@ label {
   border-radius: 5px;
   border: 1px solid #ccc;
   padding: 5px;
-  //margin: 5px;
-  //margin-left: 500px;
-  //margin-top: 20px;
 }
 
 .InputsClass {
