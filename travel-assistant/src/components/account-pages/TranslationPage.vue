@@ -1,6 +1,6 @@
 <script setup>
-import {computed, ref} from "vue";
-import {useRouter} from "vue-router";
+import { computed, ref } from "vue";
+import { useRouter } from "vue-router";
 import AppHeader from "@/components/page-components/AppHeader.vue";
 
 const language = ref('en');
@@ -33,16 +33,18 @@ const currentTranslation = computed(() => translations[language.value]);
 <!-- TranslationComponent.vue -->
 
 <template>
-  <AppHeader></AppHeader>
-  <button class="homeButton" @click="goBack">Go back</button>
-  <div class="translation-container">
-    <h1>{{ currentTranslation.greeting }}</h1>
-    <p>{{ currentTranslation.message }}</p>
+  <div>
+    <AppHeader/>
+    <button class="homeButton" @click="goBack">Go back</button>
+    <div class="translation-container">
+      <h1>{{ currentTranslation.greeting }}</h1>
+      <p>{{ currentTranslation.message }}</p>
 
-    <div class="language-buttons">
-      <button @click="setLanguage('en')">English</button>
-      <button @click="setLanguage('es')">Español</button>
-      <button @click="setLanguage('fr')">Français</button>
+      <div class="language-buttons">
+        <button @click="setLanguage('en')">English</button>
+        <button @click="setLanguage('es')">Español</button>
+        <button @click="setLanguage('fr')">Français</button>
+      </div>
     </div>
   </div>
 </template>
@@ -59,6 +61,7 @@ const currentTranslation = computed(() => translations[language.value]);
   background-color: #fff;
   text-align: center;
 }
+
 .homeButton {
   margin-top: 20px;
   padding: 10px;
