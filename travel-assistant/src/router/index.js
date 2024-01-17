@@ -17,6 +17,7 @@ import SummaryPage from "@/components/SummaryPage.vue";
 import LocalTransportInfo from "@/components/LocalTransportInfo.vue";
 import CurrencyConverterPage from "@/components/account-pages/CurrencyConverterPage.vue";
 import PackingPage from "@/components/account-pages/PackingPage.vue";
+import TranslationPage from "@/components/account-pages/TranslationPage.vue";
 
 const routes = [
     {
@@ -59,6 +60,11 @@ const routes = [
         path: '/packing',
         name: 'packing',
         component: PackingPage
+    },
+    {
+        path: '/translate',
+        name: 'translate',
+        component: TranslationPage
     },
     {
         path: '/busPage',
