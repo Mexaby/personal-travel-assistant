@@ -1,5 +1,7 @@
 <template>
   <div class="packing-info-container">
+  <AppHeader />
+  <button @click="goBack()" class="back-button">Go Back</button>
     <h2>Travel Packing Guide</h2>
 
     <div class="packing-section">
@@ -57,6 +59,12 @@
 
 <script setup>
 import { ref } from "vue";
+import AppHeader from "@/components/page-components/AppHeader.vue";
+import router from "@/router";
+
+const goBack = () => {
+  router.back();
+};
 
 const toggleCheckbox = (item) => {
   item.checked = !item.checked;
@@ -104,6 +112,17 @@ const otherItems = ref([
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   gap: 10px;
+}
+
+button {
+  margin-top: 20px;
+  padding: 12px;
+  background-color: #3498db;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
 .packing-list li {

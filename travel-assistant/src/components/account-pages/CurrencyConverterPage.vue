@@ -1,5 +1,6 @@
 <template>
   <div>
+    <AppHeader/>
     <button @click="goBack()" class="back-button">Go Back</button>
     <div class="converter-container">
       <h2>Currency Converter</h2>
@@ -36,6 +37,7 @@
 <script setup>
 import {ref} from 'vue';
 import router from "@/router";
+import AppHeader from "@/components/page-components/AppHeader.vue";
 
 const currencies = ref({
   USD: 'US Dollar',
