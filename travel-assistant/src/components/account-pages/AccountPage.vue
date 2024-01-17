@@ -21,14 +21,6 @@
         </button>
       </div>
       <div class="custom-card-container">
-        <button class="custom-card invoices">
-          <div class="card-content">
-            <img src=".././assets/Invoices.png" alt="Invoices">
-            <span>Invoices</span>
-          </div>
-        </button>
-      </div>
-      <div class="custom-card-container">
         <button class="custom-card assistant" @click="goTo('/assistant')">
           <div class="card-content">
             <img src=".././assets/Butler.png" alt="Assistant">

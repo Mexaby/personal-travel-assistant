@@ -32,7 +32,7 @@
           <img src=".././assets/Hotel-Room.webp" alt="Accommodation Image" />
           <p>You have decided to book a hotel room.</p>
         </div>
-        <button class="redoButton">Redo the previous trip</button>
+        <button class="redoButton" @click="goTo('/summary')">Redo the previous trip</button>
 
       </div>
     </div>
@@ -60,6 +60,11 @@ const toggleSubheader = (index, subheader) => {
 };
 
 const router = useRouter();
+
+const goTo = (route) => {
+  router.push(route);
+}
+
 const goBack = () => {
   router.back();
 };
