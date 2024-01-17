@@ -132,7 +132,7 @@ function search() {
 }
 .destinations-container {
   width: 170px;
-  margin-left: 9.5%;
+  margin-left: 13.5%;
   display: flex;
   flex-direction: column;
   align-items: center;

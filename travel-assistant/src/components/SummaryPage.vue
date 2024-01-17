@@ -37,7 +37,7 @@ export default {
     },
     methods: {
         goHome() {
-            this.$router.push('/');
+            this.$router.back();
         },
         confirmTrip() {
             alert('Payment pending. Thanks for choosing JourneyGenius. You will be returned to the homepage.');
@@ -114,6 +114,11 @@ export default {
 .btn {
     padding: 10px 20px;
     margin-top: 20px;
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
 }
 
 h2 {

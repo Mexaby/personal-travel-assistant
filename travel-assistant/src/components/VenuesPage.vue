@@ -106,7 +106,7 @@ function search() {
 
 .destinations-container {
   width: 250px;
-  margin-left: 10%;
+  margin-left: 14%;
   display: flex;
   flex-direction: column;
   align-items: center;
