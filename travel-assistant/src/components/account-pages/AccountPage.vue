@@ -5,7 +5,7 @@
     <!-- Four card buttons with images and updated labels -->
     <div class="button-container">
       <div class="custom-card-container">
-        <button class="custom-card reserved-trips">
+        <button class="custom-card reserved-trips" @click="goTo('/reservations')">
           <div class="card-content">
             <img src=".././assets/Planned-Trip.png" alt="Reserved Trips">
             <span>Reserved Trips</span>
